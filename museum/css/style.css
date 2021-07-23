@@ -1,3 +1,9 @@
+*, *::after, *::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 a {
   text-decoration: none;
 }
@@ -23,13 +29,30 @@ body {
 }
 
 .container {
-  max-width: 1440px;
+  max-width: 1460px;
   margin: 0 auto;
   padding: 0 10px
 }
 
+.title {
+  font-family: 'Forum';
+  font-size: 80px;
+  line-height: 90px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+.text {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 33px;
+  letter-spacing: 2px;
+}
+
 .header {
-  padding: 53px 0; /*по фигме значения не подошли*/
+  padding: 75px 0; 
   background-color: #030303;
 }
 
@@ -83,4 +106,43 @@ body {
 
 .logo:hover::before {
   filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%);
+}
+
+.welcome {
+  background-color: #030303;
+}
+
+.welcome-container {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 115px 0 270px 0;
+  background-position: calc(100% - 0px) calc(100% - 0px);
+  background-image: url(../assets/img/welcome-bg.jpg);
+  background-repeat: no-repeat;
+}
+
+.welcome__title {
+  color: #ffffff;
+  margin-bottom: 25px;
+}
+
+.welcome__text {
+  color: #ffffff;
+  margin-bottom: 101px;
+}
+
+.welcome__link {
+  background-color: #710707;
+  border-radius: 10px;
+  padding: 24px 68px;
+
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 26px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.welcome__link:hover {
+  background-color: #9D8665;
 }
