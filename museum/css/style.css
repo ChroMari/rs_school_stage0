@@ -269,3 +269,26 @@ body {
 .explore__img {
   padding-top: 15px;
 }
+
+.video {
+  padding-top: 90px;
+  padding-bottom: 70px;
+}
+
+.video-information {
+  margin-top: 37px;
+  display: flex;
+  align-items: center;
+}
+
+.video__title {
+  width: 85%;
+  color: #9D8665;
+}
+
+.video__text {
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 38px;
+  color: #000000;
+}
