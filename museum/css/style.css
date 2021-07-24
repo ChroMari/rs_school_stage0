@@ -151,6 +151,11 @@ body {
   background-color: #9D8665;
 }
 
+.visiting {
+  padding: 75px 0 0 0;
+  margin-bottom: -4px;
+}
+
 .visiting__title {
   color: #9D8665;
   position: relative;
@@ -217,4 +222,50 @@ body {
 
 .card__text + .card__text {
   font-size: 18px;
+}
+
+.explore {
+  background-color: #030303;
+  padding-bottom: 74px;
+}
+
+.explore-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.explore-information {
+  color: #FFFFFF;
+  padding-right: 60px;
+}
+
+.explore__title {
+  margin-bottom: 105px;
+  position: relative;
+}
+
+.explore__title::before {
+  content: '';
+  width: 100%;
+  height: 2px;
+  background-color: #710707;
+  position: absolute;
+  left: 0;
+  bottom: -27px;
+}
+
+.explore__text {
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 38px;
+  margin-bottom: 25px;
+  letter-spacing: 0.2px;
+}
+
+.explore__text--highlight {
+  color: #CAAA7D;
+}
+
+.explore__img {
+  padding-top: 15px;
 }
