@@ -162,7 +162,7 @@ body {
   margin-bottom: 103px;
 }
 
-.visiting__title::before, .tickets__title::before {
+.visiting__title::before, .tickets__title::before, .contacts__title::before {
   content: '';
   width: 100%;
   height: 4px;
@@ -461,4 +461,40 @@ body {
   margin-right: 0;
   display: block;
   margin-top: 50px;
+}
+
+.contacts {
+  padding-top: 75px;
+  padding-bottom: 75px;
+}
+
+.contacts__title {
+  position: relative;
+  color: #9D8665;
+  margin-bottom: 113px;
+}
+
+.contacts-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contacts__info {
+  font-family: 'Roboto';
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 26px;
+  color: #000000;
+}
+
+.contacts__info-title {
+  font-family: 'Roboto';
+  font-weight: bold;
+  font-size: 28px;
+  line-height: 33px;
+  margin-bottom: 35px;
+}
+
+.contacts__info-text + .contacts__info-text {
+  margin-top: 20px;
 }
