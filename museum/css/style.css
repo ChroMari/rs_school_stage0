@@ -465,7 +465,7 @@ body {
 
 .contacts {
   padding-top: 75px;
-  padding-bottom: 75px;
+  padding-bottom: 65px;
 }
 
 .contacts__title {
@@ -497,4 +497,42 @@ body {
 
 .contacts__info-text + .contacts__info-text {
   margin-top: 20px;
+}
+
+.footer {
+  padding: 75px 0;
+  background-color: #030303;
+}
+
+.footer-container {
+  display: grid;
+  grid-template-columns: 340px 2fr 1fr;
+}
+
+.footer-menu__link {
+  font-family: 'Roboto';
+  font-weight: 200;
+  font-size: 22px;
+  line-height: 50px;
+  letter-spacing: 2px;
+  color: #FFFFFF;
+}
+
+.footer-menu {
+  display: grid;
+  grid-template-columns: 100px 100px;
+  grid-column-gap: 160px;
+  grid-template-rows: repeat(3, 1fr);
+  grid-auto-flow: column;
+}
+
+.social-menu {
+  display: flex;
+  align-items: flex-end;
+  margin-left: 10px;
+}
+
+.social-menu__img {
+  margin-left: 24px;
+  margin-bottom: 10px;
 }
