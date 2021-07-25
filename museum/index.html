@@ -132,6 +132,75 @@
       </section>
       <!--Finish section Video-->
 
+      <!--Start section Tickets-->
+      <section class="tickets">
+        <div class="container">
+          <h2 class="tickets__title title">Buy tickets</h2>
+          <div class="tickets-wrapper">
+            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image">
+            <form class="filter" action="get">
+
+              <fieldset class="filter__type filter__type-radio">
+                <legend>Ticket Type</legend>
+                <ul>
+                  <li class="filter__item">
+                    <label class="tickets-form__text" for="filter-permanent">
+                      <input class="" type="radio" name="radio" value="Permanent exhibition" id="filter-permanent" checked="checked">
+                      <span class="radio-indicator"></span>
+                      Permanent exhibition </label>
+                  </li>
+                  <li class="filter__item">
+                    <label class="tickets-form__text" for="filter-temporary">
+                      <input class="" type="radio" name="radio" value="Temporary exhibition" id="filter-temporary">
+                      <span class="radio-indicator"></span>
+                      Temporary exhibition </label>
+                  </li>
+                  <li class="filter__item">
+                    <label class="tickets-form__text" for="filter-combined">
+                      <input class="" type="radio" name="radio" value="Combined Admissionn" id="filter-combined">
+                      <span class="radio-indicator"></span>
+                      Combined Admissionn </label>
+                  </li>
+                </ul>
+              </fieldset>
+
+              <fieldset class="filter__type filter__type-number">
+                <legend>Amount</legend>
+                <ul>
+                  <li>
+                    <label for="basic">
+                      Basic 18+
+                      <div>
+                        <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                        <input type="number" min="0" max="100" value="1" readonly class="number" id="basic">
+                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                      </div>
+                    </label>
+                  </li>
+                  <li>
+                    <label for="senior">
+                      Senior 65+
+                      <div>
+                        <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                        <input type="number" min="0" max="100" value="1" readonly class="number" id="senior">
+                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                      </div>
+                    </label>
+                  </li>
+                </ul>
+              </fieldset>
+
+              <div>
+                <p>Total €<span>220</span></p>
+                <button type="submit">Buy Now</button>
+              </div>
+              
+            </form>
+          </div>
+        </div>
+      </section>
+      <!--Finish section Tickets-->
+
     </main>
   </body>
 </html>
