@@ -140,23 +140,24 @@
             <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image">
             <form class="filter" action="get">
 
+              <div class="filter-wrapper">
               <fieldset class="filter__type filter__type-radio">
-                <legend>Ticket Type</legend>
+                <legend class="filter__type-title">Ticket Type</legend>
                 <ul>
                   <li class="filter__item">
-                    <label class="tickets-form__text" for="filter-permanent">
+                    <label class="tickets-form__text filter-radio" for="filter-permanent">
                       <input class="" type="radio" name="radio" value="Permanent exhibition" id="filter-permanent" checked="checked">
                       <span class="radio-indicator"></span>
                       Permanent exhibition </label>
                   </li>
                   <li class="filter__item">
-                    <label class="tickets-form__text" for="filter-temporary">
+                    <label class="tickets-form__text filter-radio" for="filter-temporary">
                       <input class="" type="radio" name="radio" value="Temporary exhibition" id="filter-temporary">
                       <span class="radio-indicator"></span>
                       Temporary exhibition </label>
                   </li>
                   <li class="filter__item">
-                    <label class="tickets-form__text" for="filter-combined">
+                    <label class="tickets-form__text filter-radio" for="filter-combined">
                       <input class="" type="radio" name="radio" value="Combined Admissionn" id="filter-combined">
                       <span class="radio-indicator"></span>
                       Combined Admissionn </label>
@@ -165,36 +166,37 @@
               </fieldset>
 
               <fieldset class="filter__type filter__type-number">
-                <legend>Amount</legend>
+                <legend class="filter__type-title filter__type-title-number">Amount</legend>
                 <ul>
-                  <li>
-                    <label for="basic">
+                  <li class="filter__item-number">
+                    <label class="filter__item-text" for="basic">
                       Basic 18+
-                      <div>
-                        <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                      <div class="button-container">
+                        <button class="filter__type-button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
                         <input type="number" min="0" max="100" value="1" readonly class="number" id="basic">
-                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                        <button class="filter__type-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
                       </div>
                     </label>
                   </li>
-                  <li>
-                    <label for="senior">
+                  <li class="filter__item-number">
+                    <label class="filter__item-text" for="senior">
                       Senior 65+
-                      <div>
-                        <button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                      <div class="button-container">
+                        <button class="filter__type-button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
                         <input type="number" min="0" max="100" value="1" readonly class="number" id="senior">
-                        <button type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                        <button class="filter__type-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
                       </div>
                     </label>
                   </li>
                 </ul>
               </fieldset>
+              </div>
 
               <div>
-                <p>Total €<span>220</span></p>
-                <button type="submit">Buy Now</button>
+                <p class="cost__text">Total €<span>220</span></p>
+                <button class="cost__btn" type="submit">Buy Now</button>
               </div>
-              
+
             </form>
           </div>
         </div>
