@@ -72,30 +72,29 @@
       <section class="video-section" id="video">
         <div class="container">
 
-          <div class="player">
-            <video class="player__video" poster="./assets/video/preview.jpg" src="./assets/video/652333414.mp4"></video>
-       
+          <div class="player"> <!--всё, что ниже будет генерироваться из js файла-->
+           <!-- <button class="player__button-play"><img src="./assets/svg/big_play.svg" alt="play video"></button> -->
+            <!--нужно ещё кнопку, которая большая и круглая с запуском и включением паузы-->
+
+           <!-- <video class="player__video" poster="./assets/video/preview.jpg" src="./assets/video/652333414.mp4"></video> -->
+       <!--
             <div class="player__controls">
-              <!--<div class="progress">
-               <div class="progress__filled"></div>
-              </div>-->
               
               <div>
-                <button class="player__button"><img src="./assets/svg/back.svg" alt="back button"></button>
-                <button class="player__button"><img src="./assets/svg/play.svg" alt="play button"></button> <!--+-->
-                <button class="player__button"><img src="./assets/svg/next.svg" alt="next button"></button>
+                <button class="player__button"><img src="./assets/svg/back.svg" alt="back button"></button> 
+                <button class="player__button"><img src="./assets/svg/play.svg" alt="play button"></button> 
+                <button class="player__button"><img src="./assets/svg/next.svg" alt="next button"></button> 
               </div>
 
-              <input class="player__range progress" type="range" name="volume" min="0" max="100" step="0.01" value="0">
+              <input class="player__range progress" type="range" name="volume" min="0" max="100" step="0.01" value="0"> 
 
-              <div class="player__song-wrapper">
-                <button class="player__button"><img src="./assets/svg/song.svg" alt="song button"></button>
-                <input class="player__range progress progress-song" type="range" name="volume" min="0" max="100" step="1" value="0">
+              <div class="player__song-wrapper"> 
+                <button class="player__button"><img src="./assets/svg/song.svg" alt="song button"></button> 
+                <input class="player__range progress progress-song" type="range" name="volume" min="0" max="1" step="0.01" value="0"> 
               </div>
 
-              <button><img src="./assets/svg/fullsreen.svg" alt="fullscreen open"></button>
-            
-
+              <button><img src="./assets/svg/fullsreen.svg" alt="fullscreen open"></button> 
+            -->
             </div>
           </div>
           
@@ -221,6 +220,6 @@
     </footer>
 
     <script src="./js/card.js"></script>
-    <script src="./js/video.js"></script>
+    <script type="module" src="./js/video/index.js"></script>
   </body>
 </html>

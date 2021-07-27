@@ -536,6 +536,23 @@ body {
   margin-bottom: -6px;
 }
 
+.player {
+  position: relative;
+}
+
+.player__button-play {
+  cursor: pointer;
+  position: absolute;
+  border: 10px solid #ffffff;
+  border-radius: 50%;
+  padding: 37px 42px 39px 66px;
+  top: 13%;
+  left: 35%;
+  transform: translate(50%, 50%);
+  z-index: 2;
+ /*display: block;*/ /*чтобы менять прозрачность кнопки при работе видео*/
+}
+
 .player__controls {
   display: flex;
   background-color: #000000;
@@ -547,7 +564,7 @@ body {
 }
 
 .player__button + .player__button {
-  margin-left: 35px;
+  margin-left: 42px;
 }
 
 .progress {
@@ -557,14 +574,14 @@ body {
   outline: none;
   transition: background 450ms ease-in;
   -webkit-appearance: none;
-  margin-left: -3px;
+  margin-left: -11px;
   margin-top: -5px;
 }
 
 .player__song-wrapper {
   display: flex;
   align-items: center;
-  margin-left: -13px;
+  margin-left: -6px;
 }
 
 .progress-song {
@@ -584,4 +601,5 @@ body {
 button {
   background: inherit;
   border: none;
+  cursor: pointer;
 }
