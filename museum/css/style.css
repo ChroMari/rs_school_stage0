@@ -539,11 +539,7 @@ body {
 }
 /*--------------------------------*/
 
-.footer {
-  padding: 75px 0;
-  background-color: #030303;
-}
-
+/*-footer-*/
 .footer-container {
   display: grid;
   grid-template-columns: 340px 2fr 1fr;
@@ -557,13 +553,17 @@ body {
   grid-auto-flow: column;
 }
 
-.social-menu {
+.footer-socials {
   display: flex;
   align-items: flex-end;
   margin-left: 10px;
 }
 
-.social-menu__img {
+.footer-socials__img {
   margin-left: 24px;
   margin-bottom: 10px;
+}
+
+.footer-socials li:hover a .footer-socials__img {
+  filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%);
 }

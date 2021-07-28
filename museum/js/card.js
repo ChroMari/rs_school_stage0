@@ -3,26 +3,32 @@ const body = document.querySelector('.card-wrapper');
 const db_card = [{
   'img_src': './assets/img/virtual-1.jpg',
   'title': 'Royal Palace',
+  'link': 'https://www.google.com/maps/@48.8606882,2.3356791,3a,90y,328.36h,87.55t/data=!3m7!1e1!3m5!1sAF1QipMZ9YgnArbwEIbTDANeSQYFu9gNqpW_2Sv8FBvY!2e10!3e12!7i4352!8i1815',
 }, 
 {
   'img_src': './assets/img/virtual-2.jpg',
   'title': 'Denon Wing',
+  'link': 'https://www.google.com/maps/@48.8563254,2.3352706,3a,75y,90t/data=!3m7!1e1!3m5!1sAF1QipNRj_CwP4coDMYdCHj6qHeBeJpI2VxU5BUsOX4F!2e10!3e12!7i11000!8i5500',
 },
 {
   'img_src': './assets/img/virtual-3.jpg',
   'title': 'Colonnade Perrault',
+  'link': 'https://www.google.com/maps/@48.8601723,2.3395439,3a,88.4y,322.04h,84.25t/data=!3m7!1e1!3m5!1sAF1QipNMZGQuEA-pAUvIG_eP_2f3gWTKZEJ6XLVJ-Pgb!2e10!3e12!7i10240!8i5120',
 },
 {
   'img_src': './assets/img/virtual-4.jpg',
   'title': 'Greek hall',
+  'link': 'https://www.google.com/maps/@48.860183,2.3356156,3a,90y,177.69h,95.61t/data=!3m7!1e1!3m5!1sAF1QipP7uFZnTITRe-7AEVAgHAfqiCL-03gvBHcYWgF3!2e10!3e12!7i5472!8i2736',
 },
 {
   'img_src': './assets/img/virtual-5.jpg',
   'title': 'Mona Lisa',
+  'link': 'https://www.google.com/maps/@48.8598788,2.3355157,3a,82.2y,7.53h,94t/data=!3m7!1e1!3m5!1sAF1QipO1wkUUbyzpPjj-OR0mR5etZJT-xl-40XK8rDQ3!2e10!3e12!7i10240!8i5120',
 },
 {
   'img_src': './assets/img/virtual-6.jpg',
   'title': 'Night Palace',
+  'link': 'https://www.google.com/maps/@48.8563254,2.3352706,3a,90y,21.26h,79.91t/data=!3m7!1e1!3m5!1sAF1QipPpGAowYatVyk3MMGnZAaQkYm2EUk-Dlca06SS5!2e10!3e12!7i11304!8i5652',
 }];
 
 for (let i = 0; i < db_card.length; i++) {
@@ -31,7 +37,7 @@ for (let i = 0; i < db_card.length; i++) {
 
   const a = document.createElement('a');
   a.classList.add('card-link');
-  a.setAttribute('href', '#');
+  a.setAttribute('href', item.link);
 
   const img = document.createElement('img');
   img.classList.add('card__img');
