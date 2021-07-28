@@ -81,58 +81,61 @@
       <!--Finish section Video-->
 
       <!--Start section Tickets-->
-      <section class="tickets" id="tickets">
-        <div class="container">
-          <h2 class="tickets__title title">Buy tickets</h2>
-          <div class="tickets-wrapper">
-            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image">
-            <form class="filter" action="get">
+      <section class="section section--dark" id="tickets"> <!--через общие классы-->
+        <div class="container"> <!--через общие классы-->
+          <h2 class="title section-title">Buy tickets</h2> <!--через общие классы-->
 
-              <div class="filter-wrapper">
-              <fieldset class="filter__type filter__type-radio">
-                <legend class="filter__type-title">Ticket Type</legend>
+
+          <div class="tickets-wrapper"> <!--класс для данной секции-->
+            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image" width="720" height="550"> <!--класс для данной секции-->
+            
+
+            <div class="form"> <!--класс для данной секции-->
+              <div class="form-wrapper"> <!--класс для данной секции-->
+              <fieldset>
+                <legend class="form-type__title">Ticket Type</legend> <!--класс для данной секции-->
                 <ul>
-                  <li class="filter__item">
-                    <label class="tickets-form__text filter-radio" for="filter-permanent">
-                      <input class="" type="radio" name="radio" value="Permanent exhibition" id="filter-permanent" checked="checked">
-                      <span class="radio-indicator"></span>
+                  <li class="form-type__item"> <!--класс для данной секции-->
+                    <label class="form-type__text form-radio" for="filter-permanent"> <!--класс для данной секции-->
+                      <input type="radio" name="radio" value="Permanent exhibition" id="filter-permanent" checked="checked">
+                      <span class="form-radio__indicator"></span>  <!--класс для данной секции-->
                       Permanent exhibition </label>
                   </li>
-                  <li class="filter__item">
-                    <label class="tickets-form__text filter-radio" for="filter-temporary">
-                      <input class="" type="radio" name="radio" value="Temporary exhibition" id="filter-temporary">
-                      <span class="radio-indicator"></span>
+                  <li class="form-type__item"> <!--класс для данной секции-->
+                    <label class="form-type__text form-radio" for="filter-temporary"> <!--класс для данной секции-->
+                      <input type="radio" name="radio" value="Temporary exhibition" id="filter-temporary">
+                      <span class="form-radio__indicator"></span>
                       Temporary exhibition </label>
                   </li>
-                  <li class="filter__item">
-                    <label class="tickets-form__text filter-radio" for="filter-combined">
-                      <input class="" type="radio" name="radio" value="Combined Admissionn" id="filter-combined">
-                      <span class="radio-indicator"></span>
+                  <li class="form-type__item"> <!--класс для данной секции-->
+                    <label class="form-type__text form-radio" for="filter-combined"> <!--класс для данной секции-->
+                      <input type="radio" name="radio" value="Combined Admissionn" id="filter-combined">
+                      <span class="form-radio__indicator"></span>
                       Combined Admissionn </label>
                   </li>
                 </ul>
               </fieldset>
 
-              <fieldset class="filter__type filter__type-number">
-                <legend class="filter__type-title filter__type-title-number">Amount</legend>
+              <fieldset>
+                <legend class="form-type__title form-amount__title">Amount</legend> <!--класс для данной секции-->
                 <ul>
-                  <li class="filter__item-number">
-                    <label class="filter__item-text" for="basic">
+                  <li class="form-amount__item"> <!--класс для данной секции-->
+                    <label class="form-amount__text" for="basic"> <!--класс для данной секции-->
                       Basic 18+
-                      <div class="button-container">
-                        <button class="filter__type-button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                        <input type="number" min="0" max="100" value="1" readonly class="number" id="basic">
-                        <button class="filter__type-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                      <div class="form__button-container"> <!--класс для данной секции-->
+                        <button class="form-amount__button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                        <input class="form-amount__number" type="number" min="0" max="100" value="1" readonly id="basic">
+                        <button class="form-amount__button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
                       </div>
                     </label>
                   </li>
-                  <li class="filter__item-number">
-                    <label class="filter__item-text" for="senior">
+                  <li class="form-amount__item"> <!--класс для данной секции-->
+                    <label class="form-amount__text" for="senior"> <!--класс для данной секции-->
                       Senior 65+
-                      <div class="button-container">
-                        <button class="filter__type-button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                        <input type="number" min="0" max="100" value="1" readonly class="number" id="senior">
-                        <button class="filter__type-button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
+                      <div class="form__button-container"> <!--класс для данной секции-->
+                        <button class="form-amount__button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                        <input class="form-amount__number" type="number" min="0" max="100" value="1" readonly id="senior">
+                        <button class="form-amount__button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
                       </div>
                     </label>
                   </li>
@@ -141,11 +144,12 @@
               </div>
 
               <div>
-                <p class="cost__text">Total €<span>220</span></p>
-                <button class="cost__btn" type="submit">Buy Now</button>
+                <p class="form-cost__text">Total € 220</p>
+                <button class="form-cost__button">Buy Now</button>
               </div>
 
-            </form>
+            </div>
+
           </div>
         </div>
       </section>
