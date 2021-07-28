@@ -91,63 +91,6 @@
             
 
             <div class="form"> <!--класс для данной секции-->
-              <div class="form-wrapper"> <!--класс для данной секции-->
-              <fieldset>
-                <legend class="form-type__title">Ticket Type</legend> <!--класс для данной секции-->
-                <ul>
-                  <li class="form-type__item"> <!--класс для данной секции-->
-                    <label class="form-type__text form-radio" for="filter-permanent"> <!--класс для данной секции-->
-                      <input type="radio" name="radio" value="Permanent exhibition" id="filter-permanent" checked="checked">
-                      <span class="form-radio__indicator"></span>  <!--класс для данной секции-->
-                      Permanent exhibition </label>
-                  </li>
-                  <li class="form-type__item"> <!--класс для данной секции-->
-                    <label class="form-type__text form-radio" for="filter-temporary"> <!--класс для данной секции-->
-                      <input type="radio" name="radio" value="Temporary exhibition" id="filter-temporary">
-                      <span class="form-radio__indicator"></span>
-                      Temporary exhibition </label>
-                  </li>
-                  <li class="form-type__item"> <!--класс для данной секции-->
-                    <label class="form-type__text form-radio" for="filter-combined"> <!--класс для данной секции-->
-                      <input type="radio" name="radio" value="Combined Admissionn" id="filter-combined">
-                      <span class="form-radio__indicator"></span>
-                      Combined Admissionn </label>
-                  </li>
-                </ul>
-              </fieldset>
-
-              <fieldset>
-                <legend class="form-type__title form-amount__title">Amount</legend> <!--класс для данной секции-->
-                <ul>
-                  <li class="form-amount__item"> <!--класс для данной секции-->
-                    <label class="form-amount__text" for="basic"> <!--класс для данной секции-->
-                      Basic 18+
-                      <div class="form__button-container"> <!--класс для данной секции-->
-                        <button class="form-amount__button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                        <input class="form-amount__number" type="number" min="0" max="100" value="1" readonly id="basic">
-                        <button class="form-amount__button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-                      </div>
-                    </label>
-                  </li>
-                  <li class="form-amount__item"> <!--класс для данной секции-->
-                    <label class="form-amount__text" for="senior"> <!--класс для данной секции-->
-                      Senior 65+
-                      <div class="form__button-container"> <!--класс для данной секции-->
-                        <button class="form-amount__button" type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                        <input class="form-amount__number" type="number" min="0" max="100" value="1" readonly id="senior">
-                        <button class="form-amount__button" type="button" onclick="this.previousElementSibling.stepUp()">+</button>
-                      </div>
-                    </label>
-                  </li>
-                </ul>
-              </fieldset>
-              </div>
-
-              <div>
-                <p class="form-cost__text">Total € 220</p>
-                <button class="form-cost__button">Buy Now</button>
-              </div>
-
             </div>
 
           </div>
@@ -198,5 +141,6 @@
 
     <script src="./js/card.js"></script>
     <script type="module" src="./js/video/index.js"></script>
+    <script type="module" src="./js/form/index.js"></script>
   </body>
 </html>
