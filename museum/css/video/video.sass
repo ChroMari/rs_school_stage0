@@ -1,0 +1,63 @@
+.video
+  &-section
+    padding: 89px 0 74px 0
+  &-information
+    margin-top: 37px
+    display: flex
+    align-items: center
+  &__title
+    width: 85%
+  &__text {
+    font-weight: 300
+    line-height: 38px
+
+.player
+  position: relative
+  &__video
+    display: block
+    width: 100%
+    height: 629px
+    //max-height: calc(100% - 88px)
+    object-fit: cover
+  &__button-play
+    cursor: pointer
+    position: absolute
+    top: 13%
+    left: 35%
+    transform: translate(50%, 50%)
+    z-index: 2
+    &:hover img
+      filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%)
+  &__controls
+    display: flex
+    background-color: #000000
+    align-items: center
+    justify-content: space-between
+    padding: 25px 41px 22px
+    &-button + .player__controls-button
+      margin-left: 42px
+    &-button:hover img
+      filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%)
+    &-progress
+      background: #C4C4C4
+      height: 8px
+      width: 820px
+      outline: none
+      transition: background 450ms ease-in
+      -webkit-appearance: none
+      margin-left: -11px
+      margin-top: -5px
+      &::-webkit-slider-thumb
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        -webkit-appearance: none
+        cursor: ew-resize
+        background: #ffffff
+    &-song
+      width: 155px
+      margin-left: 20px
+  &__song-wrapper
+    display: flex
+    align-items: center
+    margin-left: -6px

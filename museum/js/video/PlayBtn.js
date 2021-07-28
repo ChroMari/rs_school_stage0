@@ -1,7 +1,3 @@
-/**
- * если нажать кнопку дальше, то обновление на иконку не происходит, словно видео воспроизводится остается значок
- */
-
 class PlayBtn {
   constructor (btnWrapper, video) {
     this.img = document.createElement('img');
@@ -9,12 +5,17 @@ class PlayBtn {
     this.btnWrapper = btnWrapper;
   }
 
+  stopButton () {
+    this.img.src = './assets/svg/play.svg';
+    this.img.alt = 'play button';
+  }
+
   updateButton () {
     const method = this.video.paused ? 'play' : 'pause';
 
     if (method === 'pause') {
-      this.img.src = './assets/svg/back.svg';
-      this.img.alt = 'play button';
+      this.img.src = './assets/svg/pause.svg';
+      this.img.alt = 'pause button';
     }
     else if (method === 'play') {
       this.img.src = './assets/svg/play.svg';
@@ -27,8 +28,8 @@ class PlayBtn {
     this.video[method]();
 
     if (method === 'play') {
-      this.img.src = './assets/svg/back.svg';
-      this.img.alt = 'play button';
+      this.img.src = './assets/svg/pause.svg';
+      this.img.alt = 'pause button';
     } else {
       this.img.src = './assets/svg/play.svg';
       this.img.alt = 'play button';
@@ -37,12 +38,14 @@ class PlayBtn {
 
   render () {
     const button = document.createElement('button');
-    button.classList.add('player__button');
+    button.classList.add('player__controls-button');
     this.btnWrapper.appendChild(button);
     button.onclick = () => this.togglePlay();
 
     this.img.src = './assets/svg/play.svg';
     this.img.alt = 'play button';
+    this.img.width = '23';
+    this.img.height = '30';
     button.appendChild(this.img);
     
     this.video.addEventListener('play', () => this.updateButton());

@@ -8,7 +8,7 @@ class ProgressBar {
   scrub () {
     this.video.currentTime = (this.video.duration / 100) *  this.rangeProgress.value;
     this.rangeProgress.value = (this.video.currentTime / this.video.duration) * 100;
-    rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${this.rangeProgress.value}%, #C4C4C4 ${this.rangeProgress.value}%, white 100%)`;  
+    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${this.rangeProgress.value}%, #C4C4C4 ${this.rangeProgress.value}%, white 100%)`;  
   }
 
   handleProgress () {
@@ -23,7 +23,7 @@ class ProgressBar {
   }
 
   render() {
-    this.rangeProgress.classList.add('progress');
+    this.rangeProgress.classList.add('player__controls-progress');
     this.rangeProgress.type = 'range';
     this.rangeProgress.name = 'progress';
     this.rangeProgress.min = '0';

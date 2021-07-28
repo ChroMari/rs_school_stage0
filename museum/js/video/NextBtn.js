@@ -32,13 +32,14 @@ class NextBtn {
 
   render () {
     const button = document.createElement('button');
-    button.classList.add('player__button');
+    button.classList.add('player__controls-button');
     this.btnWrapper.appendChild(button);
-    button.onclick = () => this.getNextVideo();
 
     const img = document.createElement('img');
     img.src = './assets/svg/next.svg';
     img.alt = 'next button';
+    img.width = '27';
+    img.height = '30';
     button.appendChild(img);
 
     return button;

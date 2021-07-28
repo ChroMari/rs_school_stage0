@@ -6,19 +6,23 @@ class FullScreenBtn {
   }
 
   toggleFull () {
-    if (!document.fullscreenElement) { // также добавить смену картинок для кнопки
+    if (!document.fullscreenElement) {
       this.playWind.requestFullscreen();
+      this.img.src = './assets/svg/no_fullscreen.svg';
+      this.img.alt = 'fullscreen exit';
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
+        this.img.src = './assets/svg/fullsreen.svg';
+        this.img.alt = 'fullscreen open';
       }
     }
   }
 
   onDocumentFullscreen () {
-    if (!document.fullscreenElement) { // чисто меняем кнопку на ту, которая нам нужна
-      //this.fullIconButton.classList.add(this.classOpenFullscreen);
-      //this.fullIconButton.classList.remove(this.classExitFullscreen);
+    if (!document.fullscreenElement) {
+      this.img.src = './assets/svg/fullsreen.svg';
+      this.img.alt = 'fullscreen open';
     }
   }
 

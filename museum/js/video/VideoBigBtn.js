@@ -8,6 +8,11 @@ class VideoBigBtn {
     this.img = document.createElement('img');
   }
 
+  stopButton () {
+    this.img.src = './assets/svg/big_play.svg';
+    this.img.alt = 'Воспроизвести видео';
+  }
+
   toggleVideo (button) {
     const method = this.video.paused ? 'play' : 'pause';
     this.video[method]();

@@ -32,12 +32,14 @@ class BackBtn {
 
   render () {
     const button = document.createElement('button');
-    button.classList.add('player__button');
-    button.onclick = () => this.getBack();
+    button.classList.add('player__controls-button');
 
     const img = document.createElement('img');
     img.src = './assets/svg/back.svg';
     img.alt = 'back button';
+    img.width = '27';
+    img.height = '30';
+
     button.appendChild(img);
 
     this.btnWrapper.appendChild(button);

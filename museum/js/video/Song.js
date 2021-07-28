@@ -9,23 +9,24 @@ class Song {
   }
 
   toggleVolume () {
-    if (this.stateFlag) {
-      this.stateFlag = false;
-      this.stateVolume = this.input.value;
-      this.input.value = 0;
-      this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, white 100%)`;
-      this.img.src = './assets/svg/song.svg';
-      this.img.alt = 'звук отключён';
-      this.video.volume = 0;
-    } else {
-      this.stateFlag = true;
-      this.input.value = this.stateVolume;
-      this.img.src = './assets/svg/song.svg';
-      this.video.volume = this.stateVolume;
-      const value = this.input.value * 100;
-      console.log(value)
-      this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
-    }
+      if (this.stateFlag) {
+        this.stateFlag = false;
+        this.stateVolume = this.input.value;
+        this.input.value = 0;
+        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, white 100%)`;
+        this.img.src = './assets/svg/no_song.svg';
+        this.img.alt = 'звук отключён';
+        this.video.volume = 0;
+      } else {
+        this.stateFlag = true;
+        this.input.value = this.stateVolume;
+        this.img.src = './assets/svg/song.svg';
+        this.img.alt = 'звук включен';
+        this.video.volume = this.stateVolume;
+        const value = this.input.value * 100;
+        console.log(value)
+        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
+      }
   }
 
   scrubVolume () {
@@ -36,11 +37,22 @@ class Song {
     this.video.volume = this.input.value;
     const value = this.input.value * 100;
     this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
+
+    if (value === 0) {
+      this.img.src = './assets/svg/no_song.svg';
+      this.img.alt = 'звук отключён';
+      this.stateFlag =  false;
+      this.stateVolume = 0.50;
+    } else if (value > 0 && this.stateFlag === false) {
+      this.img.src = './assets/svg/song.svg';
+      this.img.alt = 'звук включен';
+      this.stateFlag = true;
+    }
   }
 
   render () {
     const button = document.createElement('button');
-    button.classList.add('player__button');
+    button.classList.add('player__controls-button');
     this.songWrapper.appendChild(button);
 
     this.img.src = './assets/svg/song.svg';
@@ -48,7 +60,7 @@ class Song {
     button.appendChild(this.img);
     button.onclick = () => this.toggleVolume();
 
-    this.input.classList.add('player__range', 'progress',  'progress-song');
+    this.input.classList.add('player__controls-progress',  'player__controls-song');
     this.input.type = 'range';
     this.input.name = 'volume';
     this.input.min = '0';

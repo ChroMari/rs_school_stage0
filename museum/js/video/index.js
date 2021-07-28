@@ -15,13 +15,30 @@ const bodyVideo = document.createElement('div'); // общая секция дл
 bodyVideo.classList.add('player__controls');
 playWind.appendChild(bodyVideo);
 
-const bigBtnPlay = new VideoBigBtn(video, playWind).render(); // таким образом у нас будет тоже, что и при const bigBtnPlay = document.createElement('button');
+const bigBtnPlayClass = new VideoBigBtn(video, playWind); // таким образом у нас будет тоже, что и при const bigBtnPlay = document.createElement('button');
+const bigBtnPlay = bigBtnPlayClass.render();
 
 const btnWrapper = document.createElement('div'); // обертка для 3 кнопок управления
 bodyVideo.appendChild(btnWrapper);
-const backBtn = new BackBtn(btnWrapper, video, videoArrays).render(); //кнопка для видео назад
-const playBtn = new PlayBtn(btnWrapper, video).render(); // кнопка для паузы и запуска видео
-const nextBtn = new NextBtn(btnWrapper, video, videoArrays).render(); // кнопка, которая переключает нас на новое видео
+
+const backBtnClass = new BackBtn(btnWrapper, video, videoArrays); //кнопка для видео назад
+const backBtn = backBtnClass.render();
+const playBtnClass = new PlayBtn(btnWrapper, video); // кнопка для паузы и запуска видео
+const playBtn = playBtnClass.render();
+const nextBtnClass = new NextBtn(btnWrapper, video, videoArrays); // кнопка, которая переключает нас на новое видео
+const nextBtn = nextBtnClass.render();
+
+backBtn.onclick = () => {
+  backBtnClass.getBack();
+  playBtnClass.stopButton();
+  bigBtnPlayClass.stopButton();
+}
+
+nextBtn.onclick = () => {
+  nextBtnClass.getNextVideo();
+  playBtnClass.stopButton();
+  bigBtnPlayClass.stopButton();
+}
 
 const progressBar = new ProgressBar(bodyVideo, video).render(); // полоса прогресса показывающего видео
 
@@ -30,4 +47,4 @@ songWrapper.classList.add('player__song-wrapper');
 bodyVideo.appendChild(songWrapper);
 const song = new Song(songWrapper, video).render(); // звук для видеопреера
 
-const fullScreenBtn = new FullScreenBtn(bodyVideo, playWind).render(); // фулл видео пдеер
+const fullScreenBtn = new FullScreenBtn(bodyVideo, playWind).render(); // фулл видео 
