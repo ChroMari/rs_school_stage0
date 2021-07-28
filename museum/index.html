@@ -6,104 +6,87 @@
     <link rel="icon" href="./assets/svg/logo.svg">
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="./css/style.css">
-
+//
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--Start header-->
-    <header class="section section--dark"> <!--через общие стили-->
-      <div class="container"> <!--через общие стили-->
-        <nav class="menu-wrapper"> <!--стиль чисто для header-->
-          <a class="logo" href="#">Louvre</a> <!--+ оставляем в общих, так как лого повторяется и в footer-->
-          <ul class="menu"> <!--стиль чисто для header-->
-            <li class="menu__item"><a class="menu__link" href="#visiting">Visiting</a></li> <!--первый стиль чисто для header, второй общий для header и footer-->
-            <li class="menu__item"><a class="menu__link" href="#explore">Explore</a></li> <!--первый стиль чисто для header, второй общий для header и footer-->
-            <li class="menu__item"><a class="menu__link" href="#video">Video</a></li> <!--первый стиль чисто для header, второй общий для header и footer-->
-            <li class="menu__item"><a class="menu__link" href="#tickets">Tickets</a></li> <!--первый стиль чисто для header, второй общий для header и footer-->
-            <li class="menu__item"><a class="menu__link" href="#contacts">Contacts</a></li> <!--первый стиль чисто для header, второй общий для header и footer-->
+    <header class="section section--dark">
+      <div class="container">
+        <nav class="menu-wrapper"> 
+          <a class="logo" href="#">Louvre</a> 
+          <ul class="menu">
+            <li class="menu__item"><a class="menu__link" href="#visiting">Visiting</a></li> 
+            <li class="menu__item"><a class="menu__link" href="#explore">Explore</a></li> 
+            <li class="menu__item"><a class="menu__link" href="#video">Video</a></li>
+            <li class="menu__item"><a class="menu__link" href="#tickets">Tickets</a></li> 
+            <li class="menu__item"><a class="menu__link" href="#contacts">Contacts</a></li>
           </ul>
         </nav>
       </div>
     </header>
-    <!--Finish header-->
 
     <main>
-      <h1 class="visuallyhidden">Louvre</h1> <!--через универсальный класс-->
+      <h1 class="visuallyhidden">Louvre</h1>
 
-      <!--Start section welcome-->
-      <section class="section--dark"> <!--через общий стиль-->
-        <div class="welcome-container"> <!--через стиль секции welcome-->
-          <div class="container"> <!--через общий стиль-->
-            <h2 class="welcome__title title">Welcome <br> to the Louvre</h2> <!--через общий и через стиль секции welcome-->
-            <p class="welcome__text text">From the castle to the museum</p> <!--через общий и через стиль секции welcome-->
+      <section class="section--dark" id="welcome">
+        <div class="welcome-container">
+          <div class="container">
+            <h2 class="welcome__title title">Welcome <br> to the Louvre</h2>
+            <p class="welcome__text text">From the castle to the museum</p>
             <a class="welcome__link" href="https://www.google.com/maps/@48.8618159,2.3366818,3a,75y,81.55h,73.4t/data=!3m7!1e1!3m5!1sAF1QipOVxZQuSy3Bx9T_HpH_7FtBHDTXvI6SF-A10ocT!2e10!3e12!7i5472!8i2736">Discover the Louvre</a> <!--через стиль секции welcome-->
           </div>
         </div>
       </section>
-      <!--Finish section welcome-->
 
-      <!--Start section Visiting-->
-      <section class="visiting-section section section--light" id="visiting"> <!--через общий стиль и через стиль класса-->
-        <div class="container"> <!--через общий стиль-->
-          <h2 class="title section-title title--light">Virtual tour</h2> <!--через общий класс-->
-          <div class="card-wrapper"> <!--через стили секции visiting-->
-          </div>
+      <section class="visiting-section section section--light" id="visiting">
+        <div class="container">
+          <h2 class="title section-title title--light">Virtual tour</h2>
+          <div class="card-wrapper"></div>
         </div>
       </section>
-      <!--Finish section Visiting-->
 
-      <!--Start section Explore-->
       <section class="section section--dark" id="explore">
         <div class="container explore-container">
           <div class="explore__information">
             <h2 class="title section-title">Picture explore</h2>
             <p class="explore__text">Las Meninas is a 1656 painting by Diego Velázquez, the leading artist of the Spanish Golden Age.</p>
-            <p class="explore__text">It was cleaned in 1984 to remove a <span class="explore__text--highlight">"yellow veil"</span> of dust that had gathered since the previous restoration in the 19th century.</p>
-            <p class="explore__text">The cleaning provoked furious protests, not because the picture had been damaged in any way, but because it looked different.</p>
+            <p class="explore__text">It was cleaned in 1984 to remove a <span class="explore__text--highlight">"yellow veil"</span> 
+              of dust that had gathered since the previous restoration in the 19th century.</p>
+            <p class="explore__text">The cleaning provoked furious protests, not because the picture had been damaged in any way, 
+              but because it looked different.</p>
           </div>
           <img class="explore__img" src="./assets/img/explore.jpg" alt="explore img" width="720" height="700">
         </div>
       </section>
-      <!--Finish section Explore-->
 
-      <!--Start section Video-->
-      <section class="video-section section--light" id="video"> <!--класс чисто для секции video-->
-        <div class="container"> <!--общий класс-->
-          <div class="player"></div> <!--класс чисто для секции video-->
-          <div class="video-information"> <!--класс чисто для секции-->
-            <h2 class="video__title title title--light">Video journey</h2> <!--класс чисто для секции и общий класс-->
-            <p class="video__text">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or Hammurabi's Code</p> <!--класс чисто для секции-->
+      <section class="video-section section--light" id="video">
+        <div class="container">
+          <div class="player"></div>
+          <div class="video-information">
+            <h2 class="video__title title title--light">Video journey</h2>
+            <p class="video__text">Enter and visit one of the most famous museums in the world and enjoy masterpieces such as Mona Lisa or 
+              Hammurabi's Code</p>
           </div>
         </div>
       </section>
-      <!--Finish section Video-->
 
-      <!--Start section Tickets-->
-      <section class="section section--dark" id="tickets"> <!--через общие классы-->
-        <div class="container"> <!--через общие классы-->
-          <h2 class="title section-title">Buy tickets</h2> <!--через общие классы-->
-
-
-          <div class="tickets-wrapper"> <!--класс для данной секции-->
-            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image" width="720" height="550"> <!--класс для данной секции-->
-            
-
-            <div class="form"> <!--класс для данной секции-->
-            </div>
-
+      <section class="section section--dark" id="tickets">
+        <div class="container">
+          <h2 class="title section-title">Buy tickets</h2>
+          <div class="tickets-wrapper">
+            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image" width="720" height="550">
+            <div class="form"></div>
           </div>
         </div>
       </section>
-      <!--Finish section Tickets-->
 
-      <!--Start section Contacts-->
-      <section class="section section--light" id="contacts"> <!--общие классы-->
-        <div class="container"> <!--общие классы-->
-          <h2 class="title section-title title--light">Contacts</h2> <!--общие классы-->
-          <div class="contacts-wrapper"> <!--классы для данной секции-->
-            <div class="contacts-info"> <!--классы для данной секции-->
+      <section class="section section--light" id="contacts">
+        <div class="container">
+          <h2 class="title section-title title--light">Contacts</h2>
+          <div class="contacts-wrapper">
+            <div class="contacts-info">
               <p class="contacts-info__title">Palais Royal <br> Musee du Louvre</p>
               <address class="contacts-info__text">address: 75001 Paris, France</address>
               <a class="contacts-info__text" href="tel:+330140205050">phone: +33(0) 1 40 20 50 50</a>
@@ -113,7 +96,7 @@
           </div>
         </div>
       </section>
-      <!--Finish section Contacts-->
+      
     </main>
 
     <footer class="section section--dark">
@@ -121,15 +104,14 @@
         <a class="logo" href="#">Louvre</a>
         <nav>
           <ul class="footer-menu">
-            <li><a class="menu__link" href="#welcome">Welcome</a></li> <!--+-->
-            <li><a class="menu__link" href="#visiting">Visiting</a></li> <!--+-->
-            <li><a class="menu__link" href="#explore">Explore</a></li> <!--+-->
-            <li><a class="menu__link" href="#video">Video</a></li> <!--+-->
-            <li><a class="menu__link" href="#tickets">Tickets</a></li> <!--+-->
-            <li><a class="menu__link" href="#contacts">Contacts</a></li> <!--+-->
+            <li><a class="menu__link" href="#welcome">Welcome</a></li>
+            <li><a class="menu__link" href="#visiting">Visiting</a></li>
+            <li><a class="menu__link" href="#explore">Explore</a></li>
+            <li><a class="menu__link" href="#video">Video</a></li>
+            <li><a class="menu__link" href="#tickets">Tickets</a></li>
+            <li><a class="menu__link" href="#contacts">Contacts</a></li>
           </ul>
         </nav>
-
         <ul class="footer-socials">
           <li><a href="https://www.youtube.com/user/louvre"><img class="footer-socials__img" src="./assets/svg/Youtube.svg" alt="Youtube icon"></a></li>
           <li><a href="https://www.instagram.com/museelouvre/"><img class="footer-socials__img" src="./assets/svg/Instagram.svg" alt="Instagram icon"></a></li>

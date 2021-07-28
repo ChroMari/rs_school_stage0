@@ -23,6 +23,16 @@ fieldset {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 22px;
+  font-weight: 200;
+}
+
 .visuallyhidden {
   position: absolute;
   clip: rect(1px,1px,1px,1px);
@@ -33,12 +43,6 @@ fieldset {
   width: 1px;
   padding: 0;
   border: 0;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-  font-size: 22px;
-  font-weight: 200;
 }
 
 .container {

@@ -37,7 +37,7 @@ for (let i = 0; i < db_card.length; i++) {
 
   const a = document.createElement('a');
   a.classList.add('card-link');
-  a.setAttribute('href', item.link);
+  a.setAttribute('href', db_card[i].link);
 
   const img = document.createElement('img');
   img.classList.add('card__img');
