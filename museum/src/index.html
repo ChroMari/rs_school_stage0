@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Louvre</title>
-    <!--<link rel="icon" href="./assets/svg/logo.svg">-->
+    <link rel="icon" href="./assets/svg/logo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Forum&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
@@ -54,7 +54,7 @@
             <p class="explore__text">The cleaning provoked furious protests, not because the picture had been damaged in any way, 
               but because it looked different.</p>
           </div>
-          <img class="explore__img" src="./assets/img/explore.jpg" alt="explore img" width="720" height="700">
+          <img class="explore__img" src="<%=require('./assets/img/explore.jpg')%>" alt="explore img" width="720" height="700">
         </div>
       </section>
 
@@ -73,7 +73,7 @@
         <div class="container">
           <h2 class="title section-title">Buy tickets</h2>
           <div class="tickets-wrapper">
-            <img class="tickets__img" src="./assets/img/tickets.jpg" alt="image" width="720" height="550">
+            <img class="tickets__img" src="<%=require('./assets/img/tickets.jpg')%>" alt="image" width="720" height="550">
             <div class="form"></div>
           </div>
         </div>
@@ -89,7 +89,7 @@
               <a class="contacts-info__text" href="tel:+330140205050">phone: +33(0) 1 40 20 50 50</a>
               <a class="contacts-info__text" href="mailto:info@louvre.fr">mail: info@louvre.fr</a>
             </div>
-            <img src="./assets/img/map.jpg" alt="map" width="960" height="620">
+            <img src="<%=require('./assets/img/map.jpg')%>" alt="map" width="960" height="620">
           </div>
         </div>
       </section>
@@ -110,11 +110,11 @@
           </ul>
         </nav>
         <ul class="footer-socials">
-          <li><a href="https://www.youtube.com/user/louvre"><img class="footer-socials__img" src="./assets/svg/Youtube.svg" alt="Youtube icon"></a></li>
-          <li><a href="https://www.instagram.com/museelouvre/"><img class="footer-socials__img" src="./assets/svg/Instagram.svg" alt="Instagram icon"></a></li>
-          <li><a href="https://www.facebook.com/museedulouvre"><img class="footer-socials__img" src="./assets/svg/Facebook.svg" alt="Facebook icon"></a></li>
-          <li><a href="http://twitter.com/museelouvre"><img class="footer-socials__img" src="./assets/svg/Twitter.svg" alt="Twitter icon"></a></li>
-          <li><a href="https://www.pinterest.fr/museedulouvre/"><img class="footer-socials__img" src="./assets/svg/Pinterest.svg" alt="Pinterest icon"></a></li>
+          <li><a href="https://www.youtube.com/user/louvre"><img class="footer-socials__img" src="<%=require('./assets/svg/Youtube.svg')%>" alt="Youtube icon"></a></li>
+          <li><a href="https://www.instagram.com/museelouvre/"><img class="footer-socials__img" src="<%=require('./assets/svg/Instagram.svg')%>" alt="Instagram icon"></a></li>
+          <li><a href="https://www.facebook.com/museedulouvre"><img class="footer-socials__img" src="<%=require('./assets/svg/Facebook.svg')%>" alt="Facebook icon"></a></li>
+          <li><a href="http://twitter.com/museelouvre"><img class="footer-socials__img" src="<%=require('./assets/svg/Twitter.svg')%>" alt="Twitter icon"></a></li>
+          <li><a href="https://www.pinterest.fr/museedulouvre/"><img class="footer-socials__img" src="<%=require('./assets/svg/Pinterest.svg')%>" alt="Pinterest icon"></a></li>
         </ul>
       </div>
     </footer>

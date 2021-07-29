@@ -52,10 +52,10 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
       },
-      {
+      /*{
         test: /\.html$/i,
         loader: "html-loader",
-      },
+      },*/
     ]
   },
   resolve: {
