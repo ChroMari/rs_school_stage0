@@ -1,7 +1,7 @@
 .tickets
   &-wrapper
     display: flex
-  &__img {
+  &__img
     margin-right: 62px
 
 .form
@@ -20,25 +20,25 @@
     &__text
       line-height: 26px
       display: block
-	    position: relative
-	    padding-left: 40px
-	    cursor: pointer
+      position: relative
+      padding-left: 40px
+      cursor: pointer
       &:hover
         color: #9D8665
   &-radio input[type="radio"]
     display: none
     & + .form-radio__indicator
-	    position: absolute
-	    top: 4px
-	    left: 0
-	    width: 17px
-	    height: 17px
-	    border: 2px solid #ffffff
-	    border-radius: 50%
+      position: absolute
+      top: 4px
+      left: 0
+      width: 17px
+      height: 17px
+      border: 2px solid #ffffff
+      border-radius: 50%
     &:hover + .form-radio__indicator
       border-color: #9D8665
     &:checked + .form-radio__indicator::after
-	    content: ""
+      content: ""
       position: absolute
       top: 2px
       left: 2px
@@ -55,6 +55,10 @@
     &__text
       font-weight: 300
       line-height: 25px
+    &__number
+      all: unset
+      width: 3em
+      text-align: center
     &__button
       color: #ffffff
       &:hover

@@ -1,0 +1,72 @@
+.container
+  max-width: 1460px
+  margin: 0 auto
+  padding: 0 10px
+
+.section
+  padding: 75px 0
+  &--dark
+    background-color: #030303
+    color: #ffffff
+  &--light
+    color: #000000
+  &-title
+    position: relative
+    margin-bottom: 103px
+    &::before
+      content: ''
+      width: 100%
+      height: 4px
+      background-color: #710707
+      position: absolute
+      bottom: -29px
+      left: 0
+      right: 0
+
+.title
+  font-family: 'Forum'
+  font-size: 80px
+  line-height: 90px
+  letter-spacing: 5px
+  text-transform: uppercase
+  font-weight: normal
+  &--light
+    color: #9D8665
+
+.text
+  font-weight: 300
+  font-size: 28px
+  line-height: 33px
+  letter-spacing: 2px
+
+.menu__link
+  color: #ffffff
+  line-height: 50px
+  letter-spacing: 2px
+  &:hover
+    color: #9D8665
+  &::active
+    color: #9D8665
+    
+.logo
+  text-transform: uppercase
+  font-family: 'Forum'
+  font-size: 28px
+  line-height: 50px
+  letter-spacing: 5px
+  color: #ffffff
+  padding-left: 70px
+  position: relative
+  &::before
+    content: ''
+    width: 50px
+    height: 50px
+    position: absolute
+    top: 8px
+    left: 0
+    background-image: url("../assets/svg/logo.svg")
+    background-repeat: no-repeat
+  &:hover
+    color: #9D8665
+    &::before
+      filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%)
