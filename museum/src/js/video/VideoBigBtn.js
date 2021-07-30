@@ -1,6 +1,6 @@
-/**
- * НУЖНО БУДЕТ ЗАДАТЬ ДОПОЛНИТЕЛЬНЫЙ КЛАСС ВИДЕО, ЧТОБЫ КРУЖОК ВСЕГДА ВЫХОДИЛ КРУГЛЫМ
- */
+import imgSrcPlay from '../../assets/svg/big_play.svg';
+import imgSrcPause from '../../assets/svg/big_pause.svg';
+
 class VideoBigBtn {
   constructor (video, playWind) {
     this.video = video;
@@ -9,7 +9,7 @@ class VideoBigBtn {
   }
 
   stopButton () {
-    this.img.src = './assets/svg/big_play.svg';
+    this.img.src = imgSrcPlay;
     this.img.alt = 'Воспроизвести видео';
   }
 
@@ -19,25 +19,25 @@ class VideoBigBtn {
    
     if (method === 'play') {
       button.style.opacity = 0;
-      this.img.src = './assets/svg/big_pause.svg';
+      this.img.src = imgSrcPause;
       this.img.alt = 'Поставить видео на паузу';
     } else {
       button.style.opacity = 1;
-      this.img.src = './assets/svg/big_play.svg';
+      this.img.src = imgSrcPlay;
       this.img.alt = 'Воспроизвести видео';
     }
   }
 
-  updateButton (button) { //функция, которая меняет вид картинки в зависимости от того идёт видео или нет
+  updateButton (button) {
     const method = this.video.paused ? 'play' : 'pause';
     if (method === 'pause') {
       button.style.opacity = 0;
-      this.img.src = './assets/svg/big_pause.svg';
+      this.img.src = imgSrcPause;
       this.img.alt = 'Поставить видео на паузу';
     }
     else if (method === 'play') {
       button.style.opacity = 1;
-      this.img.src = './assets/svg/big_play.svg';
+      this.img.src = imgSrcPlay;
       this.img.alt = 'Воспроизвести видео';
     }
   }
@@ -56,11 +56,11 @@ class VideoBigBtn {
     this.playWind.addEventListener('mousemove', () => this.mouseToggleVideo('move', button));
     this.playWind.addEventListener('mouseout', () => this.mouseToggleVideo('out', button));
 
-    this.img.src = './assets/svg/big_play.svg';
+    this.img.src = imgSrcPlay;
     this.img.alt = 'Воспроизвести видео';
     button.appendChild(this.img);
 
-    this.video.addEventListener('play', () => this.updateButton(button)); // когда видео включено, на нашем кастомном плеере нужно изменить значок
+    this.video.addEventListener('play', () => this.updateButton(button));
     this.video.addEventListener('pause', () => this.updateButton(button)); 
 
     return button;

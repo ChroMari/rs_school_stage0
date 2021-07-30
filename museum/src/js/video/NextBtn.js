@@ -1,3 +1,5 @@
+import imgSrc from '../../assets/svg/next.svg';
+
 class NextBtn {
   constructor (btnWrapper, video, videoArrays) {
     this.btnWrapper = btnWrapper;
@@ -22,9 +24,9 @@ class NextBtn {
       index++;
     } while (flag)
 
-    if (index + 1 == this.videoArrays.length - 1) index = 0;
+    if (index + 1 == this.videoArrays.length) index = 0;
     else index += 1;
-
+    console.log(index)
     this.video.src = this.videoArrays[index].src;
     this.video.currentTime = 0;
     this.video.poster = this.videoArrays[index].poster;
@@ -36,7 +38,7 @@ class NextBtn {
     this.btnWrapper.appendChild(button);
 
     const img = document.createElement('img');
-    img.src = './assets/svg/next.svg';
+    img.src = imgSrc;
     img.alt = 'next button';
     img.width = '27';
     img.height = '30';

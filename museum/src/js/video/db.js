@@ -1,23 +1,17 @@
+import videoSrc1 from '../../assets/video/001.mp4';
+import imgSrc1 from '../../assets/video/preview.jpg';
+
+import videoSrc2 from '../../assets/video/002.mp4';
+import imgSrc2 from '../../assets/img/explore.jpg';
+
 const videoArrays = [
   {
-    id: 0,
-    src: './assets/video/652333414.mp4',
-    poster: './assets/video/preview.jpg'
+    src: videoSrc1,
+    poster: imgSrc1
   },
   {
-    id: 1,
-    src: './assets/video/652033414.mp4',
-    poster: './assets/img/explore.jpg'
-  },
-  {
-    id: 3,
-    src: './assets/video/602333414.mp4',
-    poster: './assets/img/map.jpg'
-  },
-  {
-    id: 5,
-    src: './assets/video/652333014.mp4',
-    poster: './assets/img/tickets.jpg'
+    src: videoSrc2,
+    poster: imgSrc2
   }
 ];
 

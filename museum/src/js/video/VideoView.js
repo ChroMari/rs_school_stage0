@@ -1,3 +1,6 @@
+import videoSrc from '../../assets/video/001.mp4';
+import imgSrc from '../../assets/video/preview.jpg';
+
 class videoView {
   constructor (playWind) {
     this.playWind = playWind;
@@ -6,8 +9,8 @@ class videoView {
   render() {
     const video = document.createElement('video');
     video.classList.add('player__video');
-    video.poster = './assets/video/preview.jpg';
-    video.src = './assets/video/652333414.mp4';
+    video.poster = imgSrc;
+    video.src = videoSrc;
     this.playWind.appendChild(video);
 
     return video;
@@ -15,9 +18,3 @@ class videoView {
 };
 
 export default videoView;
-
-/*function togglePlay() {
-  const method = video.paused ? 'play' : 'pause';
-  video[method]();
-}*/
-//video.addEventListener('click', togglePlay); // если нажали по самому видео

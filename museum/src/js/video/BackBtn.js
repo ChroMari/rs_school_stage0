@@ -1,3 +1,5 @@
+import imgSrc from '../../assets/svg/back.svg';
+
 class BackBtn {
   constructor (btnWrapper, video, videoArrays) {
     this.btnWrapper = btnWrapper;
@@ -35,7 +37,7 @@ class BackBtn {
     button.classList.add('player__controls-button');
 
     const img = document.createElement('img');
-    img.src = './assets/svg/back.svg';
+    img.src = imgSrc;
     img.alt = 'back button';
     img.width = '27';
     img.height = '30';

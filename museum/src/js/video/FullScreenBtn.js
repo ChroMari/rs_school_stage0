@@ -1,3 +1,6 @@
+import imgSrcNoFullscreen from '../../assets/svg/no_fullscreen.svg';
+import imgSrcFullscreen from '../../assets/svg/fullsreen.svg';
+
 class FullScreenBtn {
   constructor (bodyVideo, playWind) {
     this.bodyVideo = bodyVideo; 
@@ -8,12 +11,12 @@ class FullScreenBtn {
   toggleFull () {
     if (!document.fullscreenElement) {
       this.playWind.requestFullscreen();
-      this.img.src = './assets/svg/no_fullscreen.svg';
+      this.img.src = imgSrcNoFullscreen;
       this.img.alt = 'fullscreen exit';
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen();
-        this.img.src = './assets/svg/fullsreen.svg';
+        this.img.src = imgSrcFullscreen;
         this.img.alt = 'fullscreen open';
       }
     }
@@ -21,7 +24,7 @@ class FullScreenBtn {
 
   onDocumentFullscreen () {
     if (!document.fullscreenElement) {
-      this.img.src = './assets/svg/fullsreen.svg';
+      this.img.src = imgSrcFullscreen;
       this.img.alt = 'fullscreen open';
     }
   }
@@ -29,9 +32,9 @@ class FullScreenBtn {
   render () {
     const button = document.createElement('button');
     this.bodyVideo.appendChild(button);
+    button.classList.add('player__controls-btn');
     button.onclick = () => this.toggleFull();
-
-    this.img.src = './assets/svg/fullsreen.svg';
+    this.img.src = imgSrcFullscreen;
     this.img.alt = 'fullscreen open';
     button.appendChild(this.img);
 

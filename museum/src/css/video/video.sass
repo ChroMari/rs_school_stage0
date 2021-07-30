@@ -26,17 +26,19 @@
     transform: translate(50%, 50%)
     z-index: 2
     &:hover img
-      filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%)
+      filter: invert(69%) sepia(0%) saturate(320%) hue-rotate(284deg) brightness(89%) contrast(81%)
   &__controls
     display: flex
     background-color: #000000
     align-items: center
     justify-content: space-between
     padding: 25px 41px 22px
+    &-btn:hover img
+      filter: invert(69%) sepia(0%) saturate(320%) hue-rotate(284deg) brightness(89%) contrast(81%)
     &-button + .player__controls-button
       margin-left: 42px
     &-button:hover img
-      filter: invert(58%) sepia(7%) saturate(1470%) hue-rotate(356deg) brightness(92%) contrast(91%)
+      filter: invert(69%) sepia(0%) saturate(320%) hue-rotate(284deg) brightness(89%) contrast(81%)
     &-progress
       background: #C4C4C4
       height: 8px
@@ -53,6 +55,8 @@
         -webkit-appearance: none
         cursor: ew-resize
         background: #ffffff
+        &:hover
+          background: red
     &-song
       width: 155px
       margin-left: 20px

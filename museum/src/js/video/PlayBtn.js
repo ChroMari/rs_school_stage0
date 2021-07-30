@@ -1,3 +1,6 @@
+import imgSrcPlay from '../../assets/svg/play.svg';
+import imgSrcPause from '../../assets/svg/pause.svg';
+
 class PlayBtn {
   constructor (btnWrapper, video) {
     this.img = document.createElement('img');
@@ -6,7 +9,7 @@ class PlayBtn {
   }
 
   stopButton () {
-    this.img.src = './assets/svg/play.svg';
+    this.img.src = imgSrcPlay;
     this.img.alt = 'play button';
   }
 
@@ -14,11 +17,11 @@ class PlayBtn {
     const method = this.video.paused ? 'play' : 'pause';
 
     if (method === 'pause') {
-      this.img.src = './assets/svg/pause.svg';
+      this.img.src = imgSrcPause;
       this.img.alt = 'pause button';
     }
     else if (method === 'play') {
-      this.img.src = './assets/svg/play.svg';
+      this.img.src = imgSrcPlay;
       this.img.alt = 'play button';
     }
   }
@@ -28,10 +31,10 @@ class PlayBtn {
     this.video[method]();
 
     if (method === 'play') {
-      this.img.src = './assets/svg/pause.svg';
+      this.img.src = imgSrcPause;
       this.img.alt = 'pause button';
     } else {
-      this.img.src = './assets/svg/play.svg';
+      this.img.src = imgSrcPlay;
       this.img.alt = 'play button';
     }
   }
@@ -42,7 +45,7 @@ class PlayBtn {
     this.btnWrapper.appendChild(button);
     button.onclick = () => this.togglePlay();
 
-    this.img.src = './assets/svg/play.svg';
+    this.img.src = imgSrcPlay;
     this.img.alt = 'play button';
     this.img.width = '23';
     this.img.height = '30';

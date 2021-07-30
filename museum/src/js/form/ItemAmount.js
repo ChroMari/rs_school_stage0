@@ -37,9 +37,9 @@ class ItemAmount {
     label.appendChild(divContainer);
 
     const buttonBack = document.createElement('button');
-    buttonBack.classList.add('form-amount__button');
+    buttonBack.classList.add('form-amount__button--minus');
     buttonBack.type = 'button';
-    buttonBack.textContent = '-';
+    buttonBack.innerHTML = `&ndash;`;
     divContainer.appendChild(buttonBack);
 
     const input = document.createElement('input');
@@ -53,10 +53,24 @@ class ItemAmount {
     divContainer.appendChild(input);
 
     const buttonNext = document.createElement('button');
-    buttonNext.classList.add('form-amount__button');
+    buttonNext.classList.add('form-amount__button--plus');
     buttonNext.textContent = '+';
     buttonNext.type = 'button';
     divContainer.appendChild(buttonNext);
+
+    buttonBack.onmouseover = () => {
+      if (!buttonBack.classList.contains('form-amount__button--active')) buttonBack.classList.add('form-amount__button--active');
+    }
+    buttonBack.onmouseout = () => {
+      if (buttonBack.classList.contains('form-amount__button--active')) buttonBack.classList.remove('form-amount__button--active');
+    }
+
+    buttonNext.onmouseover = () => {
+      if (!buttonNext.classList.contains('form-amount__button--active')) buttonNext.classList.add('form-amount__button--active');
+    }
+    buttonNext.onmouseout = () => {
+      if (buttonNext.classList.contains('form-amount__button--active')) buttonNext.classList.remove('form-amount__button--active');
+    }
 
     buttonBack.onclick = () => input.value = this.back(input.value);
     buttonNext.onclick = () => input.value = this.next(input.value);
