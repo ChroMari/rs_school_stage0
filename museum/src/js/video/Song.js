@@ -69,8 +69,8 @@ class Song {
     this.input.min = '0';
     this.input.max = '1';
     this.input.step = '0.01';
-    this.input.setAttribute('value', '0.5');
-    this.input.style.background = 'linear-gradient(to right, #24809E 0%, #24809E 50%, #C4C4C4 50%, white 100%)';
+    this.input.setAttribute('value', '0.42');
+    this.input.style.background = 'linear-gradient(to right, #24809E 0%, #24809E 42%, #C4C4C4 42%, white 100%)';
     this.songWrapper.appendChild(this.input);
 
     this.input.addEventListener('change', () => this.scrubVolume()); 

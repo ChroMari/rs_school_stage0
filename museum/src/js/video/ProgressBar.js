@@ -29,8 +29,8 @@ class ProgressBar {
     this.rangeProgress.min = '0';
     this.rangeProgress.max = '100';
     this.rangeProgress.step = '0.05';
-    this.rangeProgress.setAttribute('value', '50');
-    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 50%, #24809E 0%, #C4C4C4 50%, white 100%)`;
+    this.rangeProgress.setAttribute('value', '47');
+    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 47%, #24809E 0%, #C4C4C4 47%, white 100%)`;
 
     this.rangeProgress.onchange = () => this.scrub();
     this.video.addEventListener('timeupdate', () => this.handleProgress());
