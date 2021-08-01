@@ -16,7 +16,7 @@ class Song {
         this.stateFlag = false;
         this.stateVolume = this.input.value;
         this.input.value = 0;
-        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, white 100%)`;
+        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, #C4C4C4 100%)`;
         this.img.src = imgSrcNoSong;
         this.img.alt = 'звук отключён';
         this.video.volume = 0;
@@ -28,7 +28,7 @@ class Song {
         this.video.volume = this.stateVolume;
         const value = this.input.value * 100;
         console.log(value)
-        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
+        this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
       }
   }
 
@@ -39,7 +39,7 @@ class Song {
     }
     this.video.volume = this.input.value;
     const value = this.input.value * 100;
-    this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
+    this.input.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
 
     if (value === 0) {
       this.img.src = imgSrcNoSong;
@@ -70,7 +70,7 @@ class Song {
     this.input.max = '1';
     this.input.step = '0.01';
     this.input.setAttribute('value', '0.42');
-    this.input.style.background = 'linear-gradient(to right, #24809E 0%, #24809E 42%, #C4C4C4 42%, white 100%)';
+    this.input.style.background = 'linear-gradient(to right, #24809E 0%, #24809E 42%, #C4C4C4 42%, #C4C4C4 100%)';
     this.songWrapper.appendChild(this.input);
 
     this.input.addEventListener('change', () => this.scrubVolume()); 

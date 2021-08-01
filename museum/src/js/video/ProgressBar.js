@@ -8,17 +8,17 @@ class ProgressBar {
   scrub () {
     this.video.currentTime = (this.video.duration / 100) *  this.rangeProgress.value;
     this.rangeProgress.value = (this.video.currentTime / this.video.duration) * 100;
-    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${this.rangeProgress.value}%, #C4C4C4 ${this.rangeProgress.value}%, white 100%)`;  
+    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${this.rangeProgress.value}%, #C4C4C4 ${this.rangeProgress.value}%, #C4C4C4 100%)`;  
   }
 
   handleProgress () {
     const value = (this.video.currentTime / this.video.duration) * 100;
     if (!isNaN(value)) {
       this.rangeProgress.value = value;
-      this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, white 100%)`;
+      this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E ${value}%, #C4C4C4 ${value}%, #C4C4C4 100%)`;
     } else {
       this.rangeProgress.value = '0';
-      this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, white 100%)`;
+      this.rangeProgress.style.background = `linear-gradient(to right, #24809E 0%, #24809E 0%, #C4C4C4 0%, #C4C4C4 100%)`;
     }
   }
 
@@ -30,7 +30,7 @@ class ProgressBar {
     this.rangeProgress.max = '100';
     this.rangeProgress.step = '0.05';
     this.rangeProgress.setAttribute('value', '47');
-    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 47%, #24809E 0%, #C4C4C4 47%, white 100%)`;
+    this.rangeProgress.style.background = `linear-gradient(to right, #24809E 47%, #24809E 0%, #C4C4C4 47%, #C4C4C4 100%)`;
 
     this.rangeProgress.onchange = () => this.scrub();
     this.video.addEventListener('timeupdate', () => this.handleProgress());
