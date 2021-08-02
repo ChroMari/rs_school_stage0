@@ -1,5 +1,142 @@
-*
+*,
+*::after,
+*::before
   margin: 0
   padding: 0
   box-sizing: border-box
 
+input
+  padding: 0 !important
+
+body
+  font-family: 'Roboto', sans-serif
+  font-size: 16px
+
+#hero
+  width: 100%
+  height: 100vh
+  background-image: url("../assets/img/beach.jpg")
+  background-size: cover
+  background-position: center
+  position: relative 
+
+
+.info
+  width: 40%
+  height: 100vh
+  background: rgba(21, 28, 50, 0.5)
+  //background: radial-gradient(circle, #051340 1%, #040f32 100%)
+  backdrop-filter: blur(10px)
+  position: absolute
+  left: 0
+  top: 0
+
+  padding: 20px 35px
+  color: #fff
+  &__title
+    font-size: 24px
+    letter-spacing: 2px
+    text-align: center
+
+    border-bottom: 1px solid 
+    border-image-slice: 1
+    border-image-source: linear-gradient(to left, #38495a, #3d7eff, #38495a)
+    padding-bottom: 15px
+    margin-bottom: 25px
+
+.song
+  background-color: #01081f
+  border-radius: 10px
+  padding: 16px
+  color: #5e6a81
+  margin-bottom: 30px
+  &__title   
+    font-weight: 400
+    font-size: 16px
+    margin-bottom: 25px
+  &-wrapper
+    display: flex
+    align-items: center
+    width: 100%
+  &__btn
+    background-color: transparent
+    border: none
+    cursor: pointer
+    margin-right: 20px
+    &-wrapper
+      display: flex
+      border-left: 1px solid rgba(255, 255, 255, 0.5)
+      padding-left: 20px
+      width: 100%
+    & img 
+      width: 40px
+      height: 35px
+  &__progress
+    margin: auto
+    width: 100%
+    background: linear-gradient(to right, #00cfde 0%, #00cfde 40%, #557b88 40%, #557b88 100%)
+    height: 7px
+    border-radius: 10px
+    outline: none
+    transition: background 450ms ease-in
+    -webkit-appearance: none
+    &::-webkit-slider-thumb
+      width: 20px
+      height: 20px
+      border-radius: 50%
+      -webkit-appearance: none
+      cursor: ew-resize
+      background: #fff
+
+.wheater
+  &-wrapper
+    display: flex
+    justify-content: space-between
+    align-items: center
+    padding-bottom: 20px
+    &-info
+      align-items: start
+  &__title
+    margin-bottom: 0
+    color: #fff
+    font-size: 20px
+  &__button
+    background-color: #00cfde
+    padding: 10px 15px
+    color: #fff
+    font-size: 16px
+    border: none
+    border-radius: 5px
+    cursor: pointer
+
+
+.slider
+  display: flex
+  align-items: center
+  position: absolute
+  right: 30px
+  bottom: 50px
+  &__btn // нужно будет потом стиль поменять для переключения слайдера
+    width: 40px
+    height: 40px
+    cursor: pointer
+    &--next
+      transform: rotate(-180deg)
+    &:hover
+      background: red
+
+
+.preview
+  display: flex
+  align-items: center
+  margin: 0 60px
+  & img
+    width: 60px
+    margin: 0 10px
+    opacity: 0.4
+    object-fit: cover
+  & .active
+    display: block
+    border: 3px solid #fff
+    width: 100px
+    opacity: 1

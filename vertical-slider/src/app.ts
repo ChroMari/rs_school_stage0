@@ -1,2 +1,3 @@
-const root = document.getElementById('root');
+import './styles/style.sass';
 
+const root = document.getElementById('root');
