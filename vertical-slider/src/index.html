@@ -9,14 +9,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!--<div id="root"></div>-->
+    <div id="root"></div>
 
 
-    <div id="hero">
+    <div id="hero"> <!--root-->
+      <video src="" preload="auto" loop></video>
+      <img class="video" src="<%=require('./assets/img/night.jpg')%>" alt="">
 
       <div class="info">
           <h1 class="info__title">SoundsApp</h1>
           
+          <div class="song-body">
+
           <div class="song">
             <h4 class="song__title">Island Multisound</h4>
             <div class="song-wrapper">
@@ -38,6 +42,8 @@
             </div>
             </div>
           </div>
+
+        </div>
 
           <div class="song wheater">
             <div class="wheater-wrapper">
@@ -47,12 +53,12 @@
 
             <div class="wheater-wrapper wheater-wrapper-info">
               <div>
-                <img src="<%=require('./assets/svg/play.svg')%>" alt="" width="40" height="40"</h4>>
+                <img src="<%=require('./assets/svg/play.svg')%>" alt="">
                 <p>23 градуса</p>
                 <p>переменная облачность</p>
               </div>
               <div>
-                <img src="<%=require('./assets/svg/play.svg')%>" alt="" width="40" height="40">
+                <img src="<%=require('./assets/svg/play.svg')%>" alt="">
                 <p>27 м/с</p>
               </div>
             </div>

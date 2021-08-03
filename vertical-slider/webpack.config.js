@@ -73,7 +73,15 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
       {
         test: /\.s[ac]ss$/i,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
-      }
+      },
+      {
+        test: /\.mp3$/,
+        use: 'file-loader'
+      },
+      {
+        test: /\.mp4$/,
+        use: 'file-loader?name=videos/[name].[ext]',
+      },
     ]
   },
   resolve: {
