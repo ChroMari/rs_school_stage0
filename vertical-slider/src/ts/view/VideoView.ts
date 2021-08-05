@@ -5,7 +5,7 @@ class VideoView {
     this.src = src;
   }
 
-  render = (): HTMLElement => {
+  render = (): HTMLAudioElement => {
     const video = document.createElement('video'); // <video src="" preload="auto" loop></video>
     video.classList.add('video');
     video.src = this.src;

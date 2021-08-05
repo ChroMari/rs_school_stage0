@@ -11,27 +11,40 @@ input
 body
   font-family: 'Roboto', sans-serif
   font-size: 16px
+  width: 100%
+  min-height: 100vmin
+  padding: 50px 80px
+  background-size: cover
+  background-position: bottom center
+  backdrop-filter: blur(30px)
+  background-image: url(../assets/img/beach.jpg) // временно для фона
+
+img
+  width: 30px
+  height: 30px
 
 #root
-  width: 100%
-  height: 100vh
-  position: relative 
-
+  position: relative
+  background-color: rgba(38, 37, 53, .50)
+  border-radius: 10px
+  max-width: 900px
+  margin: 0 auto
 
 .video
-  width: 100%
-  height: 100vh
+  width: 900px
+  height: 500px
   object-fit: cover
+  border-radius: 10px
 
 .info
-  width: 480px
-  height: 100vh
+  width: 450px
+  height: 500px
+  border-radius: 10px 0 0 10px
   background: rgba(21, 28, 50, 0.5)
-  //background: radial-gradient(circle, #051340 1%, #040f32 100%)
   backdrop-filter: blur(10px)
   position: absolute
   left: 0
-  top: 0
+  top: 55px
   padding: 20px 35px
   color: #fff
   &__title
