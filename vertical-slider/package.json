@@ -2,7 +2,8 @@
   "name": "webpack_typescript",
   "scripts": {
     "build": "webpack",
-    "dev": "webpack serve --env develop"
+    "dev": "webpack serve --env develop",
+    "lint-fix": "eslint . --ext .ts --fix"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",

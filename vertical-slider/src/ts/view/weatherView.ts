@@ -1,13 +1,17 @@
-class weatherView {
-  constructor () {
+class WeatherView {
+  url: string;
 
+  constructor() {
+    this.url = '';
   }
 
-  render ():HTMLElement {
+  render():HTMLElement {
+    const k = this.url;
     const weatherBody = document.createElement('div'); //+
     weatherBody.classList.add('song', 'weather');
+    weatherBody.innerHTML = k;
 
-    const wrapperSearch = document.createElement('div'); 
+    const wrapperSearch = document.createElement('div');
     wrapperSearch.classList.add('weather-wrapper');
     weatherBody.appendChild(wrapperSearch);
 
@@ -21,7 +25,7 @@ class weatherView {
     buttonSearch.textContent = 'Сменить локацию';
     wrapperSearch.appendChild(buttonSearch);
 
-    //отображение полученных данных от запроса
+    // отображение полученных данных от запроса
     const wrapperInfo = document.createElement('div');
     wrapperInfo.classList.add('weather-wrapper', 'weather-wrapper-info');
 
@@ -30,21 +34,17 @@ class weatherView {
     const img = document.createElement('img');
     divleft.appendChild(img);
 
-    
-
-
     return weatherBody;
-  };
+  }
 }
 
-export { weatherView };
+export { WeatherView };
 
-/*<div class="song wheater">
-            <div class="wheater-wrapper"> 
+/* <div class="song wheater">
+            <div class="wheater-wrapper">
               <h4 class="song__title wheater__title">Москва</h4>
               <button class="wheater__button">Сменить локацию</button>
             </div>
-            
 
             <div class="wheater-wrapper wheater-wrapper-info">
               <div>
@@ -57,4 +57,4 @@ export { weatherView };
                 <p>27 м/с</p>
               </div>
             </div>
-          </div>*/
+          </div> */

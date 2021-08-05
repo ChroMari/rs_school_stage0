@@ -19,6 +19,7 @@ const songCollections: Array<SongView> = [];
 links.map((item) => {
   videoCollections.push(new VideoView(item.srcVideo));
   //  массив с классами в количестве 6 различных тем
+
   songCollections.push(
     new SongView(item.srcFirstSong, item.textFirstSong, item.srcSecondSong, item.textSecondSong)
   );

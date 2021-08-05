@@ -11,7 +11,7 @@ class PlayButton {
     this.isPlay = false;
   }
 
-  playAndPause = (img: HTMLImageElement) => {
+  playAndPause = (img: HTMLImageElement): void => {
     const oldImg = img;
     if (!this.isPlay) {
       this.isPlay = true;

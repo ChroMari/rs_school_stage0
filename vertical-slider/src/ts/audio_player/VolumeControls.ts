@@ -8,10 +8,13 @@ class VolumeControls {
 
   valueVolume: number;
 
+  isMouse: boolean;
+
   constructor(mp3: HTMLAudioElement) {
     this.mp3 = mp3;
     this.isPlayVolume = true;
     this.valueVolume = 0.5;
+    this.isMouse = false;
   }
 
   setVolume(range: HTMLInputElement, img: HTMLImageElement): void {
@@ -48,6 +51,11 @@ class VolumeControls {
     oldVolume.style.background = `linear-gradient(to right, #00cfde 0%, #00cfde ${oldVolume.value}%, #557b88 ${oldVolume.value}%, #557b88 100%)`;
   }
 
+  setIsMouse(method: string): void {
+    if (method === 'down') this.isMouse = true;
+    else if (method === 'up') this.isMouse = false;
+  }
+
   render(): HTMLElement {
     const container = document.createElement('div');
     container.classList.add('song__btn-wrapper');
@@ -71,11 +79,10 @@ class VolumeControls {
     range.style.background = `linear-gradient(to right, #00cfde 0%, #00cfde ${range.value}%, #557b88 ${range.value}%, #557b88 100%)`;
     container.appendChild(range);
 
-    let isMouse = false;
     range.addEventListener('change', () => this.setVolume(range, img));
-    range.addEventListener('mousemove', () => isMouse && this.setVolume(range, img));
-    range.addEventListener('mousedown', () => (isMouse = true));
-    range.addEventListener('mouseup', () => (isMouse = false));
+    range.addEventListener('mousemove', () => this.isMouse && this.setVolume(range, img));
+    range.addEventListener('mousedown', () => this.setIsMouse('down'));
+    range.addEventListener('mouseup', () => this.setIsMouse('up'));
 
     button.onclick = () => this.volumeButton(range, img);
 
