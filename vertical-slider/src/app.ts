@@ -3,6 +3,7 @@ import { links } from './ts/db/links';
 import { SongView } from './ts/view/SongView';
 
 import './styles/style.sass';
+import { WeatherView } from './ts/view/WeatherView';
 
 const root = document.getElementById('root');
 
@@ -28,6 +29,10 @@ links.map((item) => {
 });
 
 info.appendChild(songCollections[0].render());
+
+//  добавление виджета с погодой
+const weatherClass = new WeatherView();
+info.appendChild(weatherClass.render());
 
 if (root) {
   root.appendChild(videoCollections[0].render());

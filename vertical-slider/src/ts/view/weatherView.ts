@@ -1,15 +1,93 @@
+import windSrc from '../../assets/svg/wind.svg';
+
 class WeatherView {
   url: string;
 
+  userCity: string | null;
+
+  KEY: string;
+
+  weatherDb: Object;
+
   constructor() {
-    this.url = '';
+    this.userCity = 'Moscow';
+    this.KEY = 'e57c98f149763a48dfe1dc5f0325fe2c';
+    this.url = `https://api.openweathermap.org/data/2.5/weather?q=${this.userCity}&appid=${this.KEY}&lang=ru`;
+    this.weatherDb = {};
   }
 
-  render():HTMLElement {
-    const k = this.url;
+  async getWeather(): Promise<Object> {
+    return await fetch(this.url)
+      .then((response) => response.json())
+      .then((data) => {
+        return data;
+      });
+  }
+
+  toTextualDescription(degree: number) {
+    var sectors = [
+      'Northerly',
+      'North Easterly',
+      'Easterly',
+      'South Easterly',
+      'Southerly',
+      'South Westerly',
+      'Westerly',
+      'North Westerly',
+    ];
+
+    degree += 22.5;
+
+    if (degree < 0) degree = 360 - (Math.abs(degree) % 360);
+    else degree = degree % 360;
+
+    var which = parseInt(String(degree / 45));
+    return sectors[which];
+  }
+
+  renderView(t: Object) {
+    this.weatherDb = t;
+    const wrapperInfo = document.createElement('div');
+    wrapperInfo.classList.add('weather-wrapper', 'weather-wrapper-info');
+
+    const divleft = document.createElement('div');
+    wrapperInfo.appendChild(divleft);
+
+    const imgLeft = document.createElement('img');
+    imgLeft.src = `http://openweathermap.org/img/w/${this.weatherDb.weather[0].icon}.png`;
+    divleft.appendChild(imgLeft);
+
+    const pLeft = document.createElement('p');
+    pLeft.textContent = `${this.weatherDb.main.temp}°C`;
+    divleft.appendChild(pLeft);
+
+    const ppLeft = document.createElement('p');
+    ppLeft.textContent = this.weatherDb.weather[0].description;
+    divleft.appendChild(ppLeft);
+
+    const divRight = document.createElement('div');
+    wrapperInfo.appendChild(divRight);
+
+    const imgRight = document.createElement('img');
+    imgRight.src = windSrc;
+    divRight.appendChild(imgRight);
+    console.log(this.weatherDb);
+
+    const pRight = document.createElement('p');
+    pRight.textContent = `${this.weatherDb.wind.speed}m/s`;
+    divRight.appendChild(pRight);
+
+    const ppRight = document.createElement('p');
+    ppRight.textContent = this.toTextualDescription(this.weatherDb.wind.deg);
+    divRight.appendChild(ppRight);
+
+    return wrapperInfo;
+  }
+
+  render(): HTMLElement {
     const weatherBody = document.createElement('div'); //+
     weatherBody.classList.add('song', 'weather');
-    weatherBody.innerHTML = k;
+    //weatherBody.innerHTML = this.getWeather();
 
     const wrapperSearch = document.createElement('div');
     wrapperSearch.classList.add('weather-wrapper');
@@ -17,7 +95,8 @@ class WeatherView {
 
     const title = document.createElement('h4');
     title.classList.add('song__title', 'wheater__title');
-    title.textContent = 'Москва'; // потом нужно будет менять на поиск и локально
+
+    title.textContent = this.userCity; // берёт город по умолчанию или из локального хранилища
     wrapperSearch.appendChild(title);
 
     const buttonSearch = document.createElement('button');
@@ -25,36 +104,13 @@ class WeatherView {
     buttonSearch.textContent = 'Сменить локацию';
     wrapperSearch.appendChild(buttonSearch);
 
-    // отображение полученных данных от запроса
-    const wrapperInfo = document.createElement('div');
-    wrapperInfo.classList.add('weather-wrapper', 'weather-wrapper-info');
-
-    const divleft = document.createElement('div');
-
-    const img = document.createElement('img');
-    divleft.appendChild(img);
+    this.getWeather().then((t) => {
+      this.weatherDb = t;
+      weatherBody.appendChild(this.renderView(t));
+    });
 
     return weatherBody;
   }
 }
 
 export { WeatherView };
-
-/* <div class="song wheater">
-            <div class="wheater-wrapper">
-              <h4 class="song__title wheater__title">Москва</h4>
-              <button class="wheater__button">Сменить локацию</button>
-            </div>
-
-            <div class="wheater-wrapper wheater-wrapper-info">
-              <div>
-                <img src="<%=require('./assets/svg/play.svg')%>" alt="">
-                <p>23 градуса</p>
-                <p>переменная облачность</p>
-              </div>
-              <div>
-                <img src="<%=require('./assets/svg/play.svg')%>" alt="">
-                <p>27 м/с</p>
-              </div>
-            </div>
-          </div> */
