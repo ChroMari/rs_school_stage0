@@ -24,14 +24,16 @@ class SongView {
   render = (): HTMLElement => {
     const div = document.createElement('div');
     div.classList.add('song-body');
-    // и вот уже отсюда вызвать те два других плеера по отдельности
+
     const firstItem: SongPlayerView = new SongPlayerView(this.srcFirstSong, this.textFirstSong);
     const secondItem: SongPlayerView = new SongPlayerView(this.srcSecondSong, this.textSecondSong);
-
     div.appendChild(firstItem.render());
     div.appendChild(secondItem.render());
+
     return div;
   };
 }
 
 export { SongView };
+
+// [ ] создаёт обёртку куда помещаются два аудио плеера

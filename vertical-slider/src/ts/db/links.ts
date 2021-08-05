@@ -1,11 +1,12 @@
-import videoSrc from '../../assets/video/butterfly.mp4';
+import videoSrc from '../../assets/video/lake.mp4';
+import songFirstSrc from '../../assets/audio/1_1.mp3';
 
 const links: Array<Ilink> = [
   {
     srcVideo: videoSrc,
-    srcFirstSong: '',
-    textFirstSong: 'песня первая',
-    srcSecondSong: '',
+    srcFirstSong: songFirstSrc,
+    textFirstSong: 'Common Yellowthroat',
+    srcSecondSong: songFirstSrc,
     textSecondSong: 'песня вторая',
   },
 ];

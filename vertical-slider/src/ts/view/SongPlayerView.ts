@@ -1,86 +1,45 @@
-import playSrc from '../../assets/svg/play.svg';
-// нужно скрытый тег аудио добавить чтобы была возможность включить, выключить звук
+import { PlayButton } from '../audio_player/PlayButton';
+import { VolumeControls } from '../audio_player/VolumeControls';
 
 class SongPlayerView {
   srcSong: string;
 
   textSong: string;
 
-  mp: HTMLVideoElement;
-
-  isPlay: boolean;
+  mp3: HTMLAudioElement;
 
   constructor(srcSong: string, textSong: string) {
     this.srcSong = srcSong;
     this.textSong = textSong;
-    this.mp = document.createElement('video');
-
-    this.isPlay = false;
+    this.mp3 = new Audio();
   }
 
-  playAndPauseSong = (img: HTMLImageElement): void => {
-    const imgVolume = img;
-
-    if (!this.isPlay) {
-      this.isPlay = true;
-      this.mp.play();
-    } else {
-      this.isPlay = false;
-      imgVolume.src = playSrc; // ставим иконку паузы
-      this.mp.pause(); // останавливаем запущенную музыку
-    }
-  };
-
   render = (): HTMLElement => {
+    this.mp3.src = this.srcSong;
+    this.mp3.loop = true;
+
     const itemBody = document.createElement('div');
     itemBody.classList.add('song');
 
     const titleSong = document.createElement('h4');
     titleSong.classList.add('song__title');
-    titleSong.textContent = this.srcSong;
+    titleSong.textContent = this.textSong;
     itemBody.appendChild(titleSong);
 
     const wrapperSong = document.createElement('div');
     wrapperSong.classList.add('song-wrapper');
     itemBody.appendChild(wrapperSong);
 
-    // кнопка для запуска и паузы музыки
-    const playButtonSong = document.createElement('button'); // всё так нужно будет обязательно через button делать иначе вообще не выходит
-    playButtonSong.classList.add('song__btn');
-    wrapperSong.appendChild(playButtonSong);
+    const playButtonSongClass = new PlayButton(this.mp3);
+    wrapperSong.appendChild(playButtonSongClass.render());
 
-    const playImgButtonSong = document.createElement('img');
-    playImgButtonSong.src = playSrc;
-    playImgButtonSong.alt = 'кнопка для включения и выключения музыки';
-    playButtonSong.appendChild(playImgButtonSong);
-
-    playButtonSong.onclick = () => this.playAndPauseSong(playImgButtonSong);
-
-    // кнопка для включения и выключения музыки
-    const volumeWrapper = document.createElement('div');
-    volumeWrapper.classList.add('song__btn-wrapper');
-    wrapperSong.appendChild(volumeWrapper);
-
-    const VolumeButton = document.createElement('button');
-    VolumeButton.classList.add('song__btn');
-    volumeWrapper.appendChild(VolumeButton);
-
-    const volumeImgButton = document.createElement('img');
-    volumeImgButton.src = playSrc;
-    volumeImgButton.alt = 'кнопка включение и отключения громкости музыки';
-    VolumeButton.appendChild(volumeImgButton);
-
-    const rangeVolume = document.createElement('input');
-    rangeVolume.classList.add('song__progress');
-    rangeVolume.type = 'range';
-    rangeVolume.value = '0.5';
-    rangeVolume.min = '0';
-    rangeVolume.max = '1';
-    rangeVolume.step = '0.01';
-    volumeWrapper.appendChild(rangeVolume);
+    const volumeButton = new VolumeControls(this.mp3);
+    wrapperSong.appendChild(volumeButton.render());
 
     return itemBody;
   };
 }
 
 export { SongPlayerView };
+
+//  [+] скрытый тег для audio чтобы можно было слушать музыку

@@ -26,7 +26,14 @@ links.map((item) => {
   return item;
 });
 
-info.appendChild(videoCollections[0].render());
 info.appendChild(songCollections[0].render());
 
-if (root) root.appendChild(info);
+if (root) {
+  root.appendChild(videoCollections[0].render());
+  root.appendChild(info);
+}
+
+// [+] видео вставляется на весь экран приложения
+// [+] аудио плеер вставляется на страницу в своём месте
+
+// [ ] слшком короткие звуки выходят попробовать поискать по длиньше
