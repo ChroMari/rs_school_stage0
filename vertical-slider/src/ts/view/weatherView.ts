@@ -17,15 +17,14 @@ class WeatherView {
   }
 
   async getWeather(): Promise<Object> {
-    return await fetch(this.url)
-      .then((response) => response.json())
-      .then((data) => {
-        return data;
-      });
+    const response = await fetch(this.url);
+    const get = await response.json();
+    console.log(get);
+    return get;
   }
 
   toTextualDescription(degree: number) {
-    var sectors = [
+    const sectors = [
       'Northerly',
       'North Easterly',
       'Easterly',
@@ -39,14 +38,17 @@ class WeatherView {
     degree += 22.5;
 
     if (degree < 0) degree = 360 - (Math.abs(degree) % 360);
-    else degree = degree % 360;
+    else degree %= 360;
 
-    var which = parseInt(String(degree / 45));
+    const which = parseInt(String(degree / 45));
     return sectors[which];
   }
 
-  renderView(t: Object) {
-    this.weatherDb = t;
+  renderView() {
+    this.weatherDb = this.getWeather().then((res) => (this.weatherDb = res));
+    console.log(this.weatherDb);
+    //this.weatherDb = this.getWeather().then(response => response.json());
+    //this.weatherDb = responce.json();
     const wrapperInfo = document.createElement('div');
     wrapperInfo.classList.add('weather-wrapper', 'weather-wrapper-info');
 
@@ -87,7 +89,7 @@ class WeatherView {
   render(): HTMLElement {
     const weatherBody = document.createElement('div'); //+
     weatherBody.classList.add('song', 'weather');
-    //weatherBody.innerHTML = this.getWeather();
+    // weatherBody.innerHTML = this.getWeather();
 
     const wrapperSearch = document.createElement('div');
     wrapperSearch.classList.add('weather-wrapper');
@@ -104,10 +106,12 @@ class WeatherView {
     buttonSearch.textContent = 'Сменить локацию';
     wrapperSearch.appendChild(buttonSearch);
 
-    this.getWeather().then((t) => {
+    weatherBody.appendChild(this.renderView());
+
+    /*this.getWeather().then((t) => {
       this.weatherDb = t;
       weatherBody.appendChild(this.renderView(t));
-    });
+    });*/
 
     return weatherBody;
   }
