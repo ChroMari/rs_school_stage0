@@ -58,10 +58,10 @@ class VolumeControls {
 
   render(): HTMLElement {
     const container = document.createElement('div');
-    container.classList.add('song__btn-wrapper');
+    container.classList.add('song__player-volume');
 
     const button = document.createElement('button');
-    button.classList.add('song__btn', 'song__btn--small');
+    button.classList.add('song__player-btn', 'song__player-btn--small');
     container.appendChild(button);
 
     const img = document.createElement('img');
@@ -70,7 +70,7 @@ class VolumeControls {
     button.appendChild(img);
 
     const range = document.createElement('input');
-    range.classList.add('song__progress');
+    range.classList.add('song__player-progress');
     range.type = 'range';
     range.value = '50';
     range.min = '0';

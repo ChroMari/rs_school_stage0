@@ -5,9 +5,6 @@
   padding: 0
   box-sizing: border-box
 
-input
-  padding: 0 !important
-
 body
   font-family: 'Roboto', sans-serif
   font-size: 16px
@@ -30,99 +27,20 @@ img
   max-width: 900px
   margin: 0 auto
 
-
-
-
-.info
-  width: 450px
-  height: 500px
-  border-radius: 10px 0 0 10px
-  background: rgba(21, 28, 50, 0.5)
-  backdrop-filter: blur(10px)
-  position: absolute
-  left: 0
-  top: 55px
-  padding: 20px 35px
-  color: #fff
-  &__title
-    font-size: 24px
-    letter-spacing: 2px
-    text-align: center
-
-    border-bottom: 1px solid 
-    border-image-slice: 1
-    border-image-source: linear-gradient(to left, #38495a, #3d7eff, #38495a)
-    padding-bottom: 15px
-    margin-bottom: 25px
-
-.song
+.information-card
   background-color: #01081f
   border-radius: 10px
-  padding: 10px 15px
+  padding: 15px 15px 10px
   color: #5e6a81
-  margin-bottom: 30px
-  &__title   
-    font-weight: 400
-    font-size: 16px
-    margin-bottom: 10px
-  &-wrapper
-    display: flex
-    align-items: center
-    width: 100%
-  &__btn
-    background-color: transparent
-    border: none
-    cursor: pointer
-    margin-right: 20px
-    &:hover
-      filter: invert(62%) sepia(54%) saturate(4339%) hue-rotate(167deg) brightness(88%) contrast(136%)
-    &-wrapper
-      display: flex
-      border-left: 1px solid rgba(255, 255, 255, 0.5)
-      padding-left: 20px
-      width: 100%
-    & img 
-      width: 30px
-      height: 30px
-    &--small img
-      width: 20px
-      height: 20px
-  &__progress
-    margin: auto
-    width: 100%
-    height: 3px
-    border-radius: 10px
-    outline: none
-    transition: background 450ms ease-in
-    -webkit-appearance: none
-    &::-webkit-slider-thumb
-      width: 15px
-      height: 15px
-      border-radius: 50%
-      -webkit-appearance: none
-      cursor: pointer
-      background: #fff
 
-.weather
-  &-wrapper
-    display: flex
-    justify-content: space-between
-    align-items: center
-    padding-bottom: 20px
-    &-info
-      align-items: start
-  &__title
-    margin-bottom: 0
-    color: #fff
-    font-size: 20px
-  &__button
-    background-color: #00cfde
-    padding: 10px 15px
-    color: #fff
-    font-size: 16px
-    border: none
-    border-radius: 5px
-    cursor: pointer
+button
+  background-color: transparent
+  border: none
+  cursor: pointer
+
+
+
+
 
 
 .slider

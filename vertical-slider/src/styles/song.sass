@@ -1,0 +1,41 @@
+.song
+  &-wrapper
+    width: 100%
+  &__item
+    margin-bottom: 30px
+    &-title
+      font-weight: 400
+      font-size: 16px
+      margin-bottom: 10px
+  &__player
+    &-wrapper
+      display: flex
+      align-items: center
+      width: 100%
+    &-btn
+      margin-right: 20px
+      &--small img
+        width: 20px
+        height: 20px
+      &:hover
+        filter: invert(62%) sepia(54%) saturate(4339%) hue-rotate(167deg) brightness(88%) contrast(136%)
+    &-volume
+      display: flex
+      border-left: 1px solid rgba(255, 255, 255, 0.5)
+      padding-left: 20px
+      width: 100%
+    &-progress
+      margin: auto
+      width: 100%
+      height: 3px
+      border-radius: 10px
+      outline: none
+      transition: background 450ms ease-in
+      -webkit-appearance: none
+      &::-webkit-slider-thumb
+        width: 15px
+        height: 15px
+        border-radius: 50%
+        -webkit-appearance: none
+        cursor: pointer
+        background: #fff

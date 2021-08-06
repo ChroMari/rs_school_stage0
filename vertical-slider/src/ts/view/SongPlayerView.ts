@@ -19,15 +19,15 @@ class SongPlayerView {
     this.mp3.loop = true;
 
     const itemBody = document.createElement('div');
-    itemBody.classList.add('song');
+    itemBody.classList.add('song__item', 'information-card'); // +
 
     const titleSong = document.createElement('h4');
-    titleSong.classList.add('song__title');
+    titleSong.classList.add('song__item-title'); // +
     titleSong.textContent = this.textSong;
     itemBody.appendChild(titleSong);
 
     const wrapperSong = document.createElement('div');
-    wrapperSong.classList.add('song-wrapper');
+    wrapperSong.classList.add('song__player-wrapper'); // +
     itemBody.appendChild(wrapperSong);
 
     const playButtonSongClass = new PlayButton(this.mp3);

@@ -26,7 +26,7 @@ class PlayButton {
 
   render(): HTMLElement {
     const button = document.createElement('button');
-    button.classList.add('song__btn');
+    button.classList.add('song__player-btn');
 
     const img = document.createElement('img');
     img.src = playSrc;

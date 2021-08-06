@@ -1,4 +1,5 @@
 import { SongPlayerView } from './SongPlayerView';
+import '../../styles/song.sass';
 
 class SongView {
   srcFirstSong: string;
@@ -22,8 +23,8 @@ class SongView {
   }
 
   render = (): HTMLElement => {
-    const div = document.createElement('div');
-    div.classList.add('song-body');
+    const div = document.createElement('section');
+    div.classList.add('song-wrapper');
 
     const firstItem: SongPlayerView = new SongPlayerView(this.srcFirstSong, this.textFirstSong);
     const secondItem: SongPlayerView = new SongPlayerView(this.srcSecondSong, this.textSecondSong);

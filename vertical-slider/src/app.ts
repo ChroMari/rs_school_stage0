@@ -3,20 +3,14 @@ import { links } from './ts/db/links';
 import { SongView } from './ts/view/SongView';
 
 import './styles/style.sass';
+import './styles/information.sass';
 import { WeatherView } from './ts/view/WeatherView';
 import { headerView } from './ts/view/header';
 
 const root = document.getElementById('root');
 
-// header
-
 const info = document.createElement('div'); // общий контейнер с информацией
-info.classList.add('info');
-
-const h1 = document.createElement('h1');
-h1.classList.add('info__title');
-h1.textContent = 'SoundsApp';
-info.appendChild(h1);
+info.classList.add('information');
 
 const videoCollections: Array<VideoView> = [];
 const songCollections: Array<SongView> = [];
@@ -28,6 +22,7 @@ links.map((item) => {
     new SongView(item.srcFirstSong, item.textFirstSong, item.srcSecondSong, item.textSecondSong)
   );
   // массив с музыкой в количестве 6 различных тем
+
   return item;
 });
 
@@ -39,6 +34,8 @@ info.appendChild(songCollections[0].render());
 //  добавление виджета с погодой
 const weatherClass = new WeatherView();
 info.appendChild(weatherClass.render());
+
+// добавляем слайдер
 
 if (root) {
   root.appendChild(header);
