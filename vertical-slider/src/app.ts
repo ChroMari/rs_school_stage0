@@ -6,6 +6,7 @@ import './styles/style.sass';
 import './styles/information.sass';
 import { WeatherView } from './ts/view/WeatherView';
 import { headerView } from './ts/view/header';
+import { SliderView } from './ts/view/SliderView';
 
 const root = document.getElementById('root');
 
@@ -36,11 +37,13 @@ const weatherClass = new WeatherView();
 info.appendChild(weatherClass.render());
 
 // добавляем слайдер
+const slider = new SliderView();
 
 if (root) {
   root.appendChild(header);
   root.appendChild(v);
   root.appendChild(info);
+  root.appendChild(slider.render());
 }
 
 // [+] видео вставляется на весь экран приложения
