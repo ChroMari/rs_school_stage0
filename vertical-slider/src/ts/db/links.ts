@@ -1,10 +1,11 @@
-import videoSrc from '../../assets/video/lake.mp4';
+import videoSrc1 from '../../assets/video/lake.mp4';
+import videoSrc2 from '../../assets/video/butterfly.mp4';
 import songFirstSrc from '../../assets/audio/1_1.mp3';
 import srcSecondSong from '../../assets/audio/1_2.mp3';
 
 const links: Array<Ilink> = [
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc1,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,
@@ -12,7 +13,7 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc2,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,
@@ -20,7 +21,7 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc1,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,
@@ -28,7 +29,7 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc2,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,
@@ -36,7 +37,7 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc1,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,
@@ -44,7 +45,7 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc,
+    srcVideo: videoSrc2,
     srcFirstSong: songFirstSrc,
     textFirstSong: 'Common Yellowthroat',
     srcSecondSong: srcSecondSong,

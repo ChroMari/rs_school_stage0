@@ -5,17 +5,23 @@ import img2 from '../../assets/img/forest.jpg';
 import img3 from '../../assets/img/night.jpg';
 
 class SliderView {
-  constructor() {}
+  imgPrev: HTMLImageElement;
+
+  imgNext: HTMLImageElement;
+
+  constructor() {
+    this.imgPrev = document.createElement('img');
+    this.imgNext = document.createElement('img');
+  }
 
   render(): HTMLElement {
     const div = document.createElement('section');
     div.classList.add('slider');
 
-    const imgPrev = document.createElement('img');
-    imgPrev.classList.add('slider__btn');
-    imgPrev.src = srcImg;
-    imgPrev.alt = 'включить прошлый слайд';
-    div.appendChild(imgPrev);
+    this.imgPrev.classList.add('slider__btn');
+    this.imgPrev.src = srcImg;
+    this.imgPrev.alt = 'включить прошлый слайд';
+    div.appendChild(this.imgPrev);
 
     const sliderContainer = document.createElement('div');
     sliderContainer.classList.add('preview');
@@ -29,11 +35,16 @@ class SliderView {
       sliderContainer.appendChild(img);
     }
 
-    const imgNext = document.createElement('img');
-    imgNext.classList.add('slider__btn', 'slider__btn--next');
-    imgNext.src = srcImg;
-    imgNext.alt = 'включить следующий слайд';
-    div.appendChild(imgNext);
+    this.imgNext.classList.add('slider__btn', 'slider__btn--next');
+    this.imgNext.src = srcImg;
+    this.imgNext.alt = 'включить следующий слайд';
+    div.appendChild(this.imgNext);
+
+    // получается, когда пользователь нажимаает нам нужно сделать сдвиг нынешнего и одновременно следующего
+    // то есть на данный момент нам сюда нажо передать класс с видео
+    // у нас будет доступ к массиву класссов, внутри кторого можно обратиться к видео
+    // логику переключения кнопок лучше вынести в app так как нужно будет менять и сами плееры
+    // либо прееры тащить тоже в этот класс
 
     /*<div class="slider">
     <img class="slider__btn" src="<%=require('./assets/svg/left.svg')%>" alt="prev arrow">

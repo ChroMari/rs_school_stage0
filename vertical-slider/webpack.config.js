@@ -32,11 +32,11 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
     rules: [ // сюда мы добавляем лоадеры
       { // лоадер, который работает с typescript
         test: /\.(ts|tsx)$/, // определяет какие файлы будут обрабатываться данным лоадером
-        //use: 'ts-loader',
+        use: 'ts-loader',
         exclude: /node_modules/,
-        use: {
+        /*use: {
           loader: 'babel-loader',
-        },
+        },*/
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, // выбирает все файлы, которые относятся к assets
