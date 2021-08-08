@@ -121,15 +121,18 @@ const checkIndex = () => {
   allowShift = true;
 };
 
-videoSliders.onmousedown = dragStart;
-
 /*----------------------------------------*/
 
 // добавляем слайдер
 const slider = new SliderView();
+
 slider.imgPrev.onclick = () => shiftSlide(1, '');
 slider.imgNext.onclick = () => shiftSlide(-1, '');
+videoSliders.onmousedown = dragStart;
 videoSliders.ontransitionend = checkIndex;
+
+// общая функия по работе со слайдером
+//(slider.imgPrev, slider.imgNext, videoSliders, videoCollectionsRender)
 
 if (root) {
   root.appendChild(header);
