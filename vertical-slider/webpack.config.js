@@ -34,9 +34,6 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
         test: /\.(ts|tsx)$/, // определяет какие файлы будут обрабатываться данным лоадером
         use: 'ts-loader',
         exclude: /node_modules/,
-        /*use: {
-          loader: 'babel-loader',
-        },*/
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i, // выбирает все файлы, которые относятся к assets
@@ -102,7 +99,8 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
       useTabs: false,               
       semi: true,                   
       encoding: 'utf-8',
-      singleQuote: true,            
+      singleQuote: true,
+      trailingComma: "all",        
       extensions: [ ".js", ".ts", ".tsx" ] 
     }),
   ],

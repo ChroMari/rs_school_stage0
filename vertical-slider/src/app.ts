@@ -4,9 +4,10 @@ import { SongView } from './ts/view/SongView';
 
 import './styles/style.sass';
 import './styles/information.sass';
-import { WeatherView } from './ts/view/WeatherView';
+import { WeatherView } from './ts/view/weatherView';
 import { headerView } from './ts/view/header';
 import { SliderView } from './ts/view/SliderView';
+import { LogicSlider } from './ts/slider/logic';
 
 const root = document.getElementById('root');
 
@@ -31,7 +32,7 @@ links.map((item, indx) => {
   //  массив с классами в количестве 6 различных тем
 
   songCollections.push(
-    new SongView(item.srcFirstSong, item.textFirstSong, item.srcSecondSong, item.textSecondSong)
+    new SongView(item.srcFirstSong, item.textFirstSong, item.srcSecondSong, item.textSecondSong),
   );
   // массив с музыкой в количестве 6 различных тем
 
@@ -46,93 +47,8 @@ info.appendChild(songCollections[0].render());
 const weatherClass = new WeatherView();
 info.appendChild(weatherClass.render());
 
-/*---------------------------------------*/
-
-let posX1 = 0;
-let posX2 = 0;
-let posInitial = 0;
-let posFinal;
-let threshold = 100;
-let firstSlide = videoCollectionsRender[0];
-let lastSlide = videoCollectionsRender[videoCollectionsRender.length - 1];
-let cloneFirst = firstSlide.cloneNode(true);
-let cloneLast = lastSlide.cloneNode(true);
-let index = 0;
-let allowShift = true;
-
-videoSliders.appendChild(cloneFirst);
-videoSliders.insertBefore(cloneLast, firstSlide);
-
-const dragAction = (e: MouseEvent) => {
-  posX2 = posX1 - e.clientX;
-  posX1 = e.clientX;
-  videoSliders.style.left = videoSliders.offsetLeft - posX2 + 'px';
-};
-
-const dragEnd = () => {
-  posFinal = videoSliders.offsetLeft;
-  if (posFinal - posInitial < -threshold) shiftSlide(1, 'drag');
-  else if (posFinal - posInitial > threshold) shiftSlide(-1, 'drag');
-  else videoSliders.style.left = posInitial + 'px';
-
-  document.onmouseup = null;
-  document.onmousemove = null;
-};
-
-const shiftSlide = (dir: number, action: string) => {
-  videoSliders.classList.add('shifting');
-  if (allowShift) {
-    if (!action) posInitial = videoSliders.offsetLeft;
-    if (dir === 1) {
-      videoSliders.style.left = posInitial - videoCollectionsRender[0].offsetWidth + 'px';
-      index++;
-    } else if (dir === -1) {
-      videoSliders.style.left = posInitial + videoCollectionsRender[0].offsetWidth + 'px';
-      index--;
-    }
-  }
-
-  allowShift = false;
-};
-
-const dragStart = (e: MouseEvent) => {
-  e.preventDefault();
-  posInitial = videoSliders.offsetLeft;
-
-  posX1 = e.clientX;
-  document.onmouseup = dragEnd;
-  document.onmousemove = dragAction;
-};
-
-const checkIndex = () => {
-  videoSliders.classList.remove('shifting');
-
-  if (index == -1) {
-    videoSliders.style.left =
-      -(videoCollectionsRender.length * videoCollectionsRender[0].offsetWidth) + 'px';
-    index = videoCollectionsRender.length - 1;
-  }
-
-  if (index === videoCollectionsRender.length) {
-    videoSliders.style.left = -(1 * 900) + 'px';
-    index = 0;
-  }
-
-  allowShift = true;
-};
-
-/*----------------------------------------*/
-
 // добавляем слайдер
 const slider = new SliderView();
-
-slider.imgPrev.onclick = () => shiftSlide(1, '');
-slider.imgNext.onclick = () => shiftSlide(-1, '');
-videoSliders.onmousedown = dragStart;
-videoSliders.ontransitionend = checkIndex;
-
-// общая функия по работе со слайдером
-//(slider.imgPrev, slider.imgNext, videoSliders, videoCollectionsRender)
 
 if (root) {
   root.appendChild(header);
@@ -140,6 +56,18 @@ if (root) {
   root.appendChild(info);
   root.appendChild(slider.render());
 }
+
+console.log(slider.imgPreviews);
+const logicSlider = new LogicSlider(videoSliders, videoCollectionsRender, slider.imgPreviews);
+logicSlider.start();
+
+slider.imgPrev.onclick = () => logicSlider.shiftSlide(1, '');
+slider.imgNext.onclick = () => logicSlider.shiftSlide(-1, '');
+videoSliders.onmousedown = logicSlider.dragStart;
+videoSliders.ontransitionend = logicSlider.checkIndex;
+
+// общая функия по работе со слайдером
+//(slider.imgPrev, slider.imgNext, videoSliders, videoCollectionsRender)
 
 // [+] видео вставляется на весь экран приложения
 // [+] аудио плеер вставляется на страницу в своём месте

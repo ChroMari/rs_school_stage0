@@ -58,17 +58,20 @@ button
     &:hover
       background: red
 
-
+.thumbnail 
+  cursor: pointer
 .preview
   display: flex
   align-items: center
   margin: 0
+  height: 110px
   & img
     width: 35px
     height: 60px
     margin: 0 5px
     opacity: 0.4
     object-fit: cover
+    transition: all 0.5s ease-out
   & .active
     display: block
     border: 3px solid #fff
@@ -85,10 +88,11 @@ button
 
 .video-slider__sliders
   display: flex
+  flex-direction: column
   position: relative
-  top: 0
-  left: -900px
-  width: 10000px
+  top: -500px
+  left: 0
+  height: 10000px
 
 .video-slider__sliders.shifting
-  transition: left 1s ease-out
+  transition: top 1s ease-out

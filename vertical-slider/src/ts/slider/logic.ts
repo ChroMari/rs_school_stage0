@@ -1,78 +1,140 @@
-let posX1 = 0;
-let posX2 = 0;
-let posInitial = 0;
-let posFinal;
-let threshold = 100;
-let index = 0;
-let allowShift = true;
+class LogicSlider {
+  posX1: number;
+  posX2: number;
+  posInitial: number;
+  posFinal: number;
+  threshold: number;
+  index: number;
+  allowShift: boolean;
 
-const dragAction = (e: MouseEvent, videoSliders: HTMLElement) => {
-  posX2 = posX1 - e.clientX;
-  posX1 = e.clientX;
-  videoSliders.style.left = videoSliders.offsetLeft - posX2 + 'px';
-};
+  videoSliders: HTMLElement;
+  videoCollectionsRender: Array<HTMLDivElement>;
+  imgPreviews: Array<HTMLElement>;
+  constructor(
+    videoSliders: HTMLElement,
+    videoCollectionsRender: Array<HTMLDivElement>,
+    imgPreviews: Array<HTMLElement>,
+  ) {
+    this.posX1 = 0;
+    this.posX2 = 0;
+    this.posInitial = 0;
+    this.posFinal = 0;
+    this.threshold = 100;
+    this.index = 0;
+    this.allowShift = true;
 
-const dragEnd = (videoSliders: HTMLElement) => {
-  posFinal = videoSliders.offsetLeft;
-  if (posFinal - posInitial < -threshold) shiftSlide(1, 'drag', videoSliders);
-  else if (posFinal - posInitial > threshold) shiftSlide(-1, 'drag', videoSliders);
-  else videoSliders.style.left = posInitial + 'px';
+    this.videoSliders = videoSliders;
+    this.videoCollectionsRender = videoCollectionsRender;
+    this.imgPreviews = imgPreviews;
+  }
 
-  document.onmouseup = null;
-  document.onmousemove = null;
-};
+  dragAction = (e: MouseEvent) => {
+    this.posX2 = this.posX1 - e.clientY;
+    this.posX1 = e.clientY;
+    this.videoSliders.style.top = `${this.videoSliders.offsetTop - this.posX2}px`;
+  };
 
-const shiftSlide = (dir: number, action: string, videoSliders: HTMLElement, videoCollectionsRender) => {
-  videoSliders.classList.add('shifting');
-  if (allowShift) {
-    if (!action) posInitial = videoSliders.offsetLeft;
-    if (dir === 1) {
-      videoSliders.style.left = posInitial - videoCollectionsRender[0].offsetWidth + 'px';
-      index++;
-    } else if (dir === -1) {
-      videoSliders.style.left = posInitial + videoCollectionsRender[0].offsetWidth + 'px';
-      index--;
+  dragEnd = () => {
+    this.posFinal = this.videoSliders.offsetTop;
+    if (this.posFinal - this.posInitial < -this.threshold) this.shiftSlide(1, 'drag');
+    else if (this.posFinal - this.posInitial > this.threshold) this.shiftSlide(-1, 'drag');
+    else this.videoSliders.style.top = `${this.posInitial}px`;
+
+    document.onmouseup = null;
+    document.onmousemove = null;
+  };
+
+  shiftSlide = (dir: number, action: string) => {
+    this.videoSliders.classList.add('shifting');
+    this.imgPreviews.map((item) => item.classList.remove('active'));
+
+    if (this.allowShift) {
+      if (!action) this.posInitial = this.videoSliders.offsetTop;
+      if (dir === 1) {
+        this.videoSliders.style.top = `${
+          this.posInitial - this.videoCollectionsRender[0].offsetHeight
+        }px`;
+        this.index++;
+      } else if (dir === -1) {
+        this.videoSliders.style.top = `${
+          this.posInitial + this.videoCollectionsRender[0].offsetHeight
+        }px`;
+        this.index--;
+      }
+
+      if (this.index == -1)
+        this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
+      else if (this.index == this.videoCollectionsRender.length)
+        this.imgPreviews[0].classList.add('active');
+      else this.imgPreviews[this.index].classList.add('active');
     }
-  }
+    this.allowShift = false;
+  };
 
-  allowShift = false;
-};
+  dragStart = (e: MouseEvent) => {
+    e.preventDefault();
+    this.posInitial = this.videoSliders.offsetTop;
+    this.posX1 = e.clientY;
+    document.onmouseup = this.dragEnd;
+    document.onmousemove = (e) => this.dragAction(e);
+  };
 
-const dragStart = (e: MouseEvent) => {
-  e.preventDefault();
-  posInitial = videoSliders.offsetLeft;
+  checkIndex = () => {
+    this.videoSliders.classList.remove('shifting');
+    if (this.index == -1) {
+      this.videoSliders.style.top = `${-(
+        this.videoCollectionsRender.length * this.videoCollectionsRender[0].offsetHeight
+      )}px`;
+      this.index = this.videoCollectionsRender.length - 1;
+    }
+    if (this.index === this.videoCollectionsRender.length) {
+      this.videoSliders.style.top = `${-(1 * this.videoCollectionsRender[0].offsetHeight)}px`;
+      this.index = 0;
+    }
+    this.allowShift = true;
+  };
 
-  posX1 = e.clientX;
-  document.onmouseup = () => dragEnd(videoSliders);
-  document.onmousemove = (e) => dragAction(e, videoSliders);
-};
+  shiftPoint = (index: number) => {
+    this.videoSliders.classList.add('shifting');
+    this.imgPreviews.map((item) => item.classList.remove('active'));
+    //this.posInitial = this.videoSliders.offsetTop;
 
-const checkIndex = () => {
-  videoSliders.classList.remove('shifting');
+    if (this.index - index < 0) {
+      this.videoSliders.style.top = `${
+        -this.videoCollectionsRender[0].offsetHeight +
+        (this.index - index) * this.videoCollectionsRender[0].offsetHeight
+      }px`;
+    } else if (this.index - index > 0) {
+      this.videoSliders.style.top = `${
+        -this.videoCollectionsRender[0].offsetHeight -
+        index * this.videoCollectionsRender[0].offsetHeight
+      }px`;
+    }
 
-  if (index == -1) {
-    videoSliders.style.left =
-      -(videoCollectionsRender.length * videoCollectionsRender[0].offsetWidth) + 'px';
-    index = videoCollectionsRender.length - 1;
-  }
+    this.index = index;
 
-  if (index === videoCollectionsRender.length) {
-    videoSliders.style.left = -(1 * 900) + 'px';
-    index = 0;
-  }
+    if (this.index == -1)
+      this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
+    else if (this.index == this.videoCollectionsRender.length)
+      this.imgPreviews[0].classList.add('active');
+    else this.imgPreviews[this.index].classList.add('active');
+  };
 
-  allowShift = true;
-};
+  start = () => {
+    let firstSlide = this.videoCollectionsRender[0];
+    let lastSlide = this.videoCollectionsRender[this.videoCollectionsRender.length - 1];
+    let cloneFirst = firstSlide.cloneNode(true);
+    let cloneLast = lastSlide.cloneNode(true);
 
-const logicSlider = (imgPrev, imgNext, videoSliders, videoCollectionsRender) => {
+    this.videoSliders.appendChild(cloneFirst);
+    this.videoSliders.insertBefore(cloneLast, firstSlide);
 
-  videoSliders.appendChild(videoCollectionsRender[0].cloneNode(true));
-  videoSliders.insertBefore(videoCollectionsRender[videoCollectionsRender.length - 1].cloneNode(true), videoCollectionsRender[0]);
+    this.imgPreviews.forEach((item, index) =>
+      item.addEventListener('click', () => {
+        this.shiftPoint(index);
+      }),
+    );
+  };
+}
 
-  imgPrev.onclick = () => shiftSlide(1, '');
-  imgNext.onclick = () => shiftSlide(-1, '');
-  videoSliders.onmousedown = dragStart;
-  videoSliders.ontransitionend = checkIndex;
-};
-
-export { logicSlider };
+export { LogicSlider };

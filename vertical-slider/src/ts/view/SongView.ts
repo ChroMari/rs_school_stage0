@@ -14,7 +14,7 @@ class SongView {
     srcFirstSong: string,
     textFirstSong: string,
     srcSecondSong: string,
-    textSecondSong: string
+    textSecondSong: string,
   ) {
     this.srcFirstSong = srcFirstSong;
     this.textFirstSong = textFirstSong;

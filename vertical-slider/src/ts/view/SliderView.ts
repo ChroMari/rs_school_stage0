@@ -8,10 +8,13 @@ class SliderView {
   imgPrev: HTMLImageElement;
 
   imgNext: HTMLImageElement;
+  imgPreviews: Array<HTMLElement>;
 
   constructor() {
     this.imgPrev = document.createElement('img');
     this.imgNext = document.createElement('img');
+
+    this.imgPreviews = [];
   }
 
   render(): HTMLElement {
@@ -32,6 +35,7 @@ class SliderView {
       img.classList.add('thumbnail');
       if (i === 0) img.classList.add('active');
       img.src = img1;
+      this.imgPreviews.push(img);
       sliderContainer.appendChild(img);
     }
 
@@ -39,25 +43,6 @@ class SliderView {
     this.imgNext.src = srcImg;
     this.imgNext.alt = 'включить следующий слайд';
     div.appendChild(this.imgNext);
-
-    // получается, когда пользователь нажимаает нам нужно сделать сдвиг нынешнего и одновременно следующего
-    // то есть на данный момент нам сюда нажо передать класс с видео
-    // у нас будет доступ к массиву класссов, внутри кторого можно обратиться к видео
-    // логику переключения кнопок лучше вынести в app так как нужно будет менять и сами плееры
-    // либо прееры тащить тоже в этот класс
-
-    /*<div class="slider">
-    <img class="slider__btn" src="<%=require('./assets/svg/left.svg')%>" alt="prev arrow">
-
-    <div class="preview">
-      <img src="<%=require('./assets/img/beach.jpg')%>" alt="" class="active thumbnail">
-      <img src="<%=require('./assets/img/forest.jpg')%>" alt="" class="thumbnail">
-      <img src="<%=require('./assets/img/night.jpg')%>" alt="" class="thumbnail">
-      <img src="<%=require('./assets/img/beach.jpg')%>" alt="" class="thumbnail">
-      <img src="<%=require('./assets/img/forest.jpg')%>" alt="" class="thumbnail">
-    </div>
-    <img class="slider__btn slider__btn--next" src="<%=require('./assets/svg/left.svg')%>" alt="next arrow">
-  </div>*/
 
     return div;
   }
