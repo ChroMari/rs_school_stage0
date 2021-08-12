@@ -9,6 +9,8 @@ class SongView {
   srcSecondSong: string;
 
   textSecondSong: string;
+  mp3_1: HTMLAudioElement;
+  mp3_2: HTMLAudioElement;
 
   constructor(
     srcFirstSong: string,
@@ -20,21 +22,21 @@ class SongView {
     this.textFirstSong = textFirstSong;
     this.srcSecondSong = srcSecondSong;
     this.textSecondSong = textSecondSong;
+    this.mp3_1 = new Audio();
+    this.mp3_2 = new Audio();
   }
 
   render = (): HTMLElement => {
-    const div = document.createElement('section');
-    div.classList.add('song-wrapper');
+    const songItem = document.createElement('div');
+    songItem.classList.add('song-slider-inner');
 
-    const firstItem: SongPlayerView = new SongPlayerView(this.srcFirstSong, this.textFirstSong);
-    const secondItem: SongPlayerView = new SongPlayerView(this.srcSecondSong, this.textSecondSong);
-    div.appendChild(firstItem.render());
-    div.appendChild(secondItem.render());
+    const firstItem: SongPlayerView = new SongPlayerView(this.srcFirstSong, this.textFirstSong, this.mp3_1);
+    const secondItem: SongPlayerView = new SongPlayerView(this.srcSecondSong, this.textSecondSong, this.mp3_2);
+    songItem.appendChild(firstItem.render());
+    songItem.appendChild(secondItem.render());
 
-    return div;
+    return songItem;
   };
 }
 
 export { SongView };
-
-// [ ] создаёт обёртку куда помещаются два аудио плеера

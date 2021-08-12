@@ -8,10 +8,10 @@ class SongPlayerView {
 
   mp3: HTMLAudioElement;
 
-  constructor(srcSong: string, textSong: string) {
+  constructor(srcSong: string, textSong: string, mp3: HTMLAudioElement) {
     this.srcSong = srcSong;
     this.textSong = textSong;
-    this.mp3 = new Audio();
+    this.mp3 = mp3;
   }
 
   render = (): HTMLElement => {

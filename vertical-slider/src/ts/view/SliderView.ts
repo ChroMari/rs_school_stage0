@@ -1,20 +1,18 @@
 import srcImg from '../../assets/svg/left.svg';
 
-import img1 from '../../assets/img/beach.jpg';
-import img2 from '../../assets/img/forest.jpg';
-import img3 from '../../assets/img/night.jpg';
-
 class SliderView {
   imgPrev: HTMLImageElement;
 
   imgNext: HTMLImageElement;
   imgPreviews: Array<HTMLElement>;
+  imgSliders: Array<IimgSlider>;
 
-  constructor() {
+  constructor(imgSlider: Array<IimgSlider>) {
     this.imgPrev = document.createElement('img');
     this.imgNext = document.createElement('img');
 
     this.imgPreviews = [];
+    this.imgSliders = imgSlider;
   }
 
   render(): HTMLElement {
@@ -30,14 +28,14 @@ class SliderView {
     sliderContainer.classList.add('preview');
     div.appendChild(sliderContainer);
 
-    for (let i = 0; i < 6; i++) {
+    this.imgSliders.map((item, index) => {
       const img = document.createElement('img');
       img.classList.add('thumbnail');
-      if (i === 0) img.classList.add('active');
-      img.src = img1;
+      if (index === 0) img.classList.add('active'); // нужно будет потом отсюда убрать, так как подет получать номер из локального хранилища
+      img.src = item.src;
       this.imgPreviews.push(img);
       sliderContainer.appendChild(img);
-    }
+    });
 
     this.imgNext.classList.add('slider__btn', 'slider__btn--next');
     this.imgNext.src = srcImg;
@@ -49,3 +47,7 @@ class SliderView {
 }
 
 export { SliderView };
+
+interface IimgSlider {
+  src: string;
+}
