@@ -4,7 +4,9 @@ class SliderView {
   imgPrev: HTMLImageElement;
 
   imgNext: HTMLImageElement;
+
   imgPreviews: Array<HTMLElement>;
+
   imgSliders: Array<IimgSlider>;
 
   constructor(imgSlider: Array<IimgSlider>) {

@@ -9,7 +9,9 @@ class SongView {
   srcSecondSong: string;
 
   textSecondSong: string;
+
   mp3_1: HTMLAudioElement;
+
   mp3_2: HTMLAudioElement;
 
   constructor(

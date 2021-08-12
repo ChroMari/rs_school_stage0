@@ -1,20 +1,32 @@
 class LogicSlider {
   posX1: number;
+
   posX2: number;
+
   posInitial: number;
+
   posFinal: number;
+
   threshold: number;
+
   index: number;
+
   allowShift: boolean;
 
   posInitialSong: number;
+
   posFinalSong: number;
 
   videoSliders: HTMLElement;
+
   videoCollectionsRender: Array<HTMLDivElement>;
+
   imgPreviews: Array<HTMLElement>;
+
   songCollectionsRender: Array<HTMLElement>;
+
   songSlider: HTMLElement;
+
   constructor(
     videoSliders: HTMLElement,
     videoCollectionsRender: Array<HTMLDivElement>,
@@ -89,10 +101,8 @@ class LogicSlider {
         this.index--;
       }
 
-      if (this.index == -1)
-        this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
-      else if (this.index == this.videoCollectionsRender.length)
-        this.imgPreviews[0].classList.add('active');
+      if (this.index == -1) this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
+      else if (this.index == this.videoCollectionsRender.length) this.imgPreviews[0].classList.add('active');
       else this.imgPreviews[this.index].classList.add('active');
     }
     this.allowShift = false;
@@ -135,47 +145,43 @@ class LogicSlider {
     this.imgPreviews.map((item) => item.classList.remove('active'));
 
     this.videoSliders.style.top = `${-(
-      this.videoCollectionsRender[0].offsetHeight +
-      index * this.videoCollectionsRender[0].offsetHeight
+      this.videoCollectionsRender[0].offsetHeight
+      + index * this.videoCollectionsRender[0].offsetHeight
     )}px`;
 
     this.songSlider.classList.add('shifting');
     this.songSlider.style.bottom = `${
-      this.songCollectionsRender[0].offsetHeight * this.songCollectionsRender.length -
-      index * this.songCollectionsRender[0].offsetHeight
+      this.songCollectionsRender[0].offsetHeight * this.songCollectionsRender.length
+      - index * this.songCollectionsRender[0].offsetHeight
     }px`;
 
     this.index = index;
 
-    if (this.index == -1)
-      this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
-    else if (this.index == this.videoCollectionsRender.length)
-      this.imgPreviews[0].classList.add('active');
+    if (this.index == -1) this.imgPreviews[this.videoCollectionsRender.length - 1].classList.add('active');
+    else if (this.index == this.videoCollectionsRender.length) this.imgPreviews[0].classList.add('active');
     else this.imgPreviews[this.index].classList.add('active');
   };
 
   start = () => {
-    let firstSlide = this.videoCollectionsRender[0];
-    let lastSlide = this.videoCollectionsRender[this.videoCollectionsRender.length - 1];
-    let cloneFirst = firstSlide.cloneNode(true);
-    let cloneLast = lastSlide.cloneNode(true);
+    const firstSlide = this.videoCollectionsRender[0];
+    const lastSlide = this.videoCollectionsRender[this.videoCollectionsRender.length - 1];
+    const cloneFirst = firstSlide.cloneNode(true);
+    const cloneLast = lastSlide.cloneNode(true);
 
     this.videoSliders.appendChild(cloneFirst);
     this.videoSliders.insertBefore(cloneLast, firstSlide);
 
-    let firstSlideSong = this.songCollectionsRender[0];
-    let lastSlideSong = this.songCollectionsRender[this.songCollectionsRender.length - 1];
-    let cloneFirstSong = firstSlideSong.cloneNode(true);
-    let cloneLastSong = lastSlideSong.cloneNode(true);
+    const firstSlideSong = this.songCollectionsRender[0];
+    const lastSlideSong = this.songCollectionsRender[this.songCollectionsRender.length - 1];
+    const cloneFirstSong = firstSlideSong.cloneNode(true);
+    const cloneLastSong = lastSlideSong.cloneNode(true);
 
     this.songSlider.appendChild(cloneFirstSong);
     this.songSlider.insertBefore(cloneLastSong, firstSlideSong);
 
-    this.imgPreviews.forEach((item, index) =>
-      item.addEventListener('click', () => {
-        this.shiftPoint(index);
-      }),
-    );
+    this.imgPreviews.forEach((item, index) => item.addEventListener('click', () => {
+      this.shiftPoint(index);
+    }));
   };
 }
 

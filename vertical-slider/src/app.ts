@@ -22,7 +22,7 @@ const videoSliders = document.createElement('div');
 videoSliders.classList.add('video-slider__sliders');
 videoSliderWrapper.appendChild(videoSliders);
 
-/*-обертка для музыки со слайдером-*/
+/* -обертка для музыки со слайдером-*/
 const sectionSong = document.createElement('section');
 sectionSong.classList.add('song-wrapper');
 
@@ -33,7 +33,7 @@ sectionSong.appendChild(songSlider);
 const videoCollections: Array<VideoView> = [];
 const videoCollectionsRender: Array<HTMLDivElement> = [];
 
-let songCollections: Array<SongView> = [];
+const songCollections: Array<SongView> = [];
 let songCollectionsRender: Array<HTMLElement> = [];
 links.map((item, indx) => {
   videoCollections.push(new VideoView(item.srcVideo));
@@ -45,7 +45,7 @@ links.map((item, indx) => {
     new SongView(item.srcFirstSong, item.textFirstSong, item.srcSecondSong, item.textSecondSong), // отсюда надо вытянуть mp3
   );
   songCollectionsRender.push(songCollections[indx].render());
-  //songSlider.appendChild(songCollectionsRender[indx]); // получаем все элементы музыки для каждого видео
+  // songSlider.appendChild(songCollectionsRender[indx]); // получаем все элементы музыки для каждого видео
   // массив с музыкой в количестве 6 различных тем
 
   return item;

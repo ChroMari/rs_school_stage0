@@ -36,7 +36,7 @@ class WeatherView {
     er.classList.add('weather__search-error');
     wrapperSearch.appendChild(er);
 
-    let weatherInfo = new WeatherControls();
+    const weatherInfo = new WeatherControls();
     weatherBody.appendChild(weatherInfo.render());
     weatherInfo.getWeather(this.userCity, title, er);
 
