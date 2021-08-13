@@ -21,7 +21,7 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
   devtool: develop ? 'inline-source-map' : false, 
 
   entry: {
-    app: './src/app.ts', // точка входа нашего приложения //ПОТОМ ПОМЕНЯТЬ НА TS!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    app: './src/app.ts', 
    },
   output: { // куда произойдёт итоговый билд нашего проекта
     path: path.resolve(__dirname, 'dist'), //в корне папки с проектом создаёт папку dist
