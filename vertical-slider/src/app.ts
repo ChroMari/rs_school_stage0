@@ -1,5 +1,6 @@
 import './styles/style.sass';
 import { HeaderWrapper } from './ts/components/headerSection/HeaderWrapper';
+import { PlayersSlider } from './ts/components/playerSection/Playersslider';
 import { SliderWrapper } from './ts/components/sliderSection/SliderWrapper';
 import { VideoWrapper } from './ts/components/videoSection/VideoWrapper';
 import { weatherWrapper } from './ts/components/weatherSection/weatherWrapper';
@@ -29,6 +30,21 @@ const root = document.getElementById('root');
  * slider-container - обёртка для всех картинок
  * slider__item - каждая картинка
  * slider__item--active - выбранная картинка в данный момент
+ */
+
+/**
+ * song - главная обёртка для плеера
+ * song-sliders - хранит все отрендеренные пары рендеров
+ * song__slider - div в котором находятся два отрендеренных элемента
+ *  song-item - обёртка для одного плеера
+ *    song-item__title - название песни
+ *    song-item-wrapper - обрётка для кнопок
+ *    song-item__button - кнопка для включения и выключения воспроизведения звука
+ *    song-item-wrapper song-item-wrapper--volume - обертка и полоса разделения для музыки
+ *      song-item__button
+ *      song-item__progress
+ *
+ *
  */
 
 /**
@@ -87,6 +103,9 @@ class SoundsApp {
      */
 
     this.informationInner.classList.add('content');
+
+    const playerSongClass = new PlayersSlider();
+    this.informationInner.appendChild(playerSongClass.render());
 
     // погода
     const weather = weatherWrapper();
