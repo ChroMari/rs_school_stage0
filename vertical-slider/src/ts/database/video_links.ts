@@ -10,8 +10,8 @@ const srcVideo: Array<string> = [
   videoButterfly,
   videoFall,
   videoFire,
-  videoGrass,
   videoWaterfall,
+  videoGrass,
 ];
 
 export { srcVideo };

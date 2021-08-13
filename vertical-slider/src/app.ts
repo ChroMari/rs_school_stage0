@@ -4,6 +4,7 @@ import { SliderWrapper } from './ts/components/sliderSection/SliderWrapper';
 import { VideoWrapper } from './ts/components/videoSection/VideoWrapper';
 import { imgLinks } from './ts/database/img_slider';
 import { srcVideo } from './ts/database/video_links';
+import { LogicSliders } from './ts/logic/LogisSliders';
 
 const root = document.getElementById('root');
 
@@ -29,7 +30,7 @@ const root = document.getElementById('root');
  * slider__item--active - выбранная картинка в данный момент
  */
 
-class LogicSoundsApp {
+class SoundsApp {
   indexActiveVideo: number;
 
   headerView: HTMLHeadElement;
@@ -67,14 +68,30 @@ class LogicSoundsApp {
      */
 
     // const informationInner = document.createElement('div'); // обретка для двух секций
+
+    /*-Работа слайдера-*/
+    //this.indexActiveVideo, videoClass.videoViews, videoClass.container, sliderClass.imgViews
+    const logicSliderClass = new LogicSliders(
+      this.indexActiveVideo,
+      videoClass.videoViews,
+      videoClass.container,
+      sliderClass.imgViews,
+    );
+    logicSliderClass.render();
+
+    sliderClass.buttonNext.onclick = () => logicSliderClass.shiftSlide(1, '');
+    sliderClass.buttonPrev.onclick = () => logicSliderClass.shiftSlide(-1, '');
+
+    videoClass.container.onmousedown = logicSliderClass.dragStart;
+    videoClass.container.ontransitionend = logicSliderClass.checkIndex;
   }
 }
 
-const SoundsApp = new LogicSoundsApp();
-SoundsApp.render();
+const soundsAppClass = new SoundsApp();
+soundsAppClass.render();
 
 if (root) {
-  root.appendChild(SoundsApp.headerView);
-  root.appendChild(SoundsApp.videoView);
-  root.appendChild(SoundsApp.sliderView);
+  root.appendChild(soundsAppClass.headerView);
+  root.appendChild(soundsAppClass.videoView);
+  root.appendChild(soundsAppClass.sliderView);
 }
