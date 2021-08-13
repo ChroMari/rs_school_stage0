@@ -2,6 +2,7 @@ import './styles/style.sass';
 import { HeaderWrapper } from './ts/components/headerSection/HeaderWrapper';
 import { SliderWrapper } from './ts/components/sliderSection/SliderWrapper';
 import { VideoWrapper } from './ts/components/videoSection/VideoWrapper';
+import { weatherWrapper } from './ts/components/weatherSection/weatherWrapper';
 import { imgLinks } from './ts/database/img_slider';
 import { srcVideo } from './ts/database/video_links';
 import { LogicSliders } from './ts/logic/LogisSliders';
@@ -30,6 +31,21 @@ const root = document.getElementById('root');
  * slider__item--active - выбранная картинка в данный момент
  */
 
+/**
+ * weather - главная обёртка для секции с погодой
+ * div
+ *  div
+ *    weather__input - поле для заполнения и отправки данных на поиск
+ *    weather__button - кнопка для отправа запроса на получение данных о погоде
+ *  weather__text - поле с предупреждением, что по запросу не было данных
+ *
+ * weather-wrapper - обёртка для поля с информацией
+ * weather-card - колонка с информацией
+ *  img weather-card__img
+ *  p weather-card__text
+ *  p weather-card__text
+ */
+
 class SoundsApp {
   indexActiveVideo: number;
 
@@ -39,6 +55,8 @@ class SoundsApp {
 
   sliderView: HTMLElement;
 
+  informationInner: HTMLElement;
+
   constructor() {
     this.indexActiveVideo = !localStorage.getItem('active')
       ? 0
@@ -47,6 +65,7 @@ class SoundsApp {
     this.headerView = document.createElement('header');
     this.videoView = document.createElement('section');
     this.sliderView = document.createElement('section');
+    this.informationInner = document.createElement('div');
   }
 
   render() {
@@ -67,10 +86,14 @@ class SoundsApp {
      * sliderClass.buttonNext - кнопка следующего слайда
      */
 
-    // const informationInner = document.createElement('div'); // обретка для двух секций
+    this.informationInner.classList.add('content');
 
-    /*-Работа слайдера-*/
-    //this.indexActiveVideo, videoClass.videoViews, videoClass.container, sliderClass.imgViews
+    // погода
+    const weather = weatherWrapper();
+    this.informationInner.appendChild(weather);
+
+    /* -Работа слайдера-*/
+    // this.indexActiveVideo, videoClass.videoViews, videoClass.container, sliderClass.imgViews
     const logicSliderClass = new LogicSliders(
       this.indexActiveVideo,
       videoClass.videoViews,
@@ -94,4 +117,5 @@ if (root) {
   root.appendChild(soundsAppClass.headerView);
   root.appendChild(soundsAppClass.videoView);
   root.appendChild(soundsAppClass.sliderView);
+  root.appendChild(soundsAppClass.informationInner);
 }

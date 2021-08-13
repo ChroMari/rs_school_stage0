@@ -2,15 +2,21 @@ import { logicImgClick } from './logicImgClick';
 
 class LogicSliders {
   posX1: number;
+
   posX2: number;
+
   threshold: number;
+
   allowShift: boolean;
 
   index: number;
+
   videoViews: Array<HTMLDivElement>;
+
   videoContainer: HTMLDivElement;
 
   posInitialVideo: number;
+
   posFinalVideo: number;
 
   imgViews: Array<HTMLImageElement>;
@@ -72,7 +78,7 @@ class LogicSliders {
         this.index -= 1;
       }
 
-      if (this.index == -1)
+      if (this.index === -1)
         this.imgViews[this.imgViews.length - 1].classList.add('slider__item--active');
       else if (this.index === this.imgViews.length)
         this.imgViews[0].classList.add('slider__item--active');
@@ -86,13 +92,13 @@ class LogicSliders {
     this.posInitialVideo = this.videoContainer.offsetTop;
     this.posX1 = e.clientY;
     document.onmouseup = this.dragEnd;
-    document.onmousemove = (e) => this.dragAction(e);
+    document.onmousemove = this.dragAction;
   };
 
-  checkIndex = () => {
+  checkIndex = (): void => {
     this.videoContainer.classList.remove('shifting');
 
-    if (this.index == -1) {
+    if (this.index === -1) {
       this.videoContainer.style.top = `${-(
         this.videoViews.length * this.videoViews[0].offsetHeight
       )}px`;
@@ -106,7 +112,7 @@ class LogicSliders {
     this.allowShift = true;
   };
 
-  render() {
+  render(): void {
     const firstSlide = this.videoViews[0];
     const lastSlide = this.videoViews[this.videoViews.length - 1];
     const cloneFirst = firstSlide.cloneNode(true);

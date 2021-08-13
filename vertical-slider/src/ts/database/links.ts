@@ -1,10 +1,3 @@
-import videoSrc1 from '../../assets/video/beach.mp4';
-import videoSrc2 from '../../assets/video/butterfly.mp4';
-import videoSrc3 from '../../assets/video/fall.mp4';
-import videoSrc4 from '../../assets/video/fire.mp4';
-import videoSrc5 from '../../assets/video/waterfall.mp4';
-import videoSrc6 from '../../assets/video/grass.mp4';
-
 import songSrc1_1 from '../../assets/audio/beach_1.mp3';
 import songSrc1_2 from '../../assets/audio/beach_2.mp3';
 
@@ -25,7 +18,6 @@ import songSrc6_2 from '../../assets/audio/grass_2.mp3';
 
 const links: Array<Ilink> = [
   {
-    srcVideo: videoSrc1,
     srcFirstSong: songSrc1_1,
     textFirstSong: 'Крик пролетающей чайки beach',
     srcSecondSong: songSrc1_2,
@@ -33,7 +25,6 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc2,
     srcFirstSong: songSrc2_1,
     textFirstSong: 'Звук, который записан ночью в поле butterfly',
     srcSecondSong: songSrc2_2,
@@ -41,7 +32,6 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc3,
     srcFirstSong: songSrc3_1,
     textFirstSong: 'Атмосфера леса в осеннюю пору fall',
     srcSecondSong: songSrc3_2,
@@ -49,7 +39,6 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc4,
     srcFirstSong: songSrc4_1,
     textFirstSong: 'Музыка на Новый год для фона без слов fire',
     srcSecondSong: songSrc4_2,
@@ -57,7 +46,6 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc5,
     srcFirstSong: songSrc5_1,
     textFirstSong: 'Джунгли днем: насекомые, птицы, дневные сверчки, утки waterfall',
     srcSecondSong: songSrc5_2,
@@ -65,7 +53,6 @@ const links: Array<Ilink> = [
   },
 
   {
-    srcVideo: videoSrc6,
     srcFirstSong: songSrc6_1,
     textFirstSong: 'Звук насекомых в поле ночью grass',
     srcSecondSong: songSrc6_2,
@@ -76,7 +63,6 @@ const links: Array<Ilink> = [
 export { links };
 
 interface Ilink {
-  srcVideo: string;
   srcFirstSong: string;
   textFirstSong: string;
   srcSecondSong: string;

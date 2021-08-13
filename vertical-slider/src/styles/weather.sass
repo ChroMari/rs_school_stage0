@@ -1,42 +1,51 @@
 .weather
-  &__search
-    &-wrapper
-      padding-bottom: 10px
-    &-input
-      border: none
-      background-color: transparent
-      color: #fff
-      opacity: 0.5
-      font-size: 16px
-      border-bottom: 2px solid #00cfde
-      line-height: 25px
-      outline: none
-      padding: 5px 0
-      &:focus
-        opacity: 1
-    &-button
-      background-color: #00cfde
-      color: #fff
-      border-radius: 10px
-      padding: 10px 25px
-      font-size: 14px
-      margin-left: 60px
-    &-error
-      background: #de0029
-      border-radius: 5px
-      padding: 5px 10px
-      color: #fff
-      font-size: 14px
-      margin-top: 10px
-      display: none
-      &--active
-        display: block
-  &__information
+  background-color: #01081f
+  border-radius: 10px
+  padding: 15px 15px 10px
+  color: #5e6a81
+  &__input
+    border: none
+    background-color: transparent
+    color: #fff
+    opacity: .5
+    font-size: 16px
+    border-bottom: 2px solid #00cfde
+    line-height: 25px
+    outline: none
+    padding: 5px 0
+    &:focus
+      opacity: 1
+  &__button
+    background-color: #00cfde
+    color: #fff
+    border-radius: 10px
+    padding: 10px 25px
+    font-size: 14px
+    margin-left: 60px
+    &:hover
+      background-color: darken(#00cfde, 15)
+  &__text
+    background: #de0029
+    border-radius: 5px
+    padding: 5px 10px
+    color: #fff
+    font-size: 14px
+    margin-top: 10px
+    display: none
+    &--active
+      display: block
+  &-wrapper
     margin-top: 15px
+    padding-top: 10px
     display: flex
     justify-content: space-between
-    &-card
-      display: flex
-      flex-direction: column
-      align-items: center
-      gap: 10px
+  &-card
+    display: flex
+    flex-direction: column
+    align-items: center
+    gap: 10px
+    &__img
+      width: 30px
+      height: 30px
+
+

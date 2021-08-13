@@ -1,8 +1,9 @@
 const logicImgClick = (
-  videoContainer: HTMLDivElement,
+  video: HTMLDivElement,
   imgViews: Array<HTMLElement>,
   index: number,
-) => {
+): void => {
+  const videoContainer = video;
   videoContainer.classList.add('shifting');
   imgViews.map((img) => img.classList.remove('slider__item--active'));
 
