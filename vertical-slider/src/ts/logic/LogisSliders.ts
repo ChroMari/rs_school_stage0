@@ -1,3 +1,4 @@
+import { imgBody } from './imgBody';
 import { logicImgClick } from './logicImgClick';
 
 class LogicSliders {
@@ -88,10 +89,9 @@ class LogicSliders {
     this.imgViews.forEach((img) => img.classList.remove('slider__item--active'));
 
     if (this.allowShift) {
-      if (!action) {
-        this.posInitialVideo = this.videoContainer.offsetTop;
-        this.posInitialSong = this.containerSong.offsetTop - 20; // сдвигаем слайдер
-      }
+      if (!action) this.posInitialVideo = this.videoContainer.offsetTop;
+
+      this.posInitialSong = this.containerSong.offsetTop - 20;
       if (dir === 1) {
         this.videoContainer.style.top = `${
           this.posInitialVideo - this.videoViews[0].offsetHeight
@@ -149,6 +149,8 @@ class LogicSliders {
     this.playerMp3s[this.index * 2].play();
     this.playerMp3s[this.index * 2 + 1].play();
 
+    imgBody(this.imgViews[this.index]);
+
     this.allowShift = true;
   };
 
@@ -170,6 +172,8 @@ class LogicSliders {
     this.containerSong.appendChild(cloneFirstSong);
     this.containerSong.insertBefore(cloneLastSong, firstSlideSong);
     this.containerSong.style.top = `${-((this.index + 1) * 220)}px`;
+
+    imgBody(this.imgViews[this.index]);
 
     this.imgViews.forEach((item, index) =>
       item.addEventListener('click', () => {

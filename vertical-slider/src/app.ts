@@ -1,6 +1,7 @@
 import { SoundsApp } from './ts/SoundsApp';
 
 import './styles/style.sass';
+import { preloader } from './ts/preloader';
 
 const root = document.getElementById('root');
 
@@ -13,3 +14,5 @@ if (root) {
   root.appendChild(soundsAppClass.sliderView);
   root.appendChild(soundsAppClass.informationInner);
 }
+
+preloader();
