@@ -2,6 +2,7 @@ import { SoundsApp } from './ts/SoundsApp';
 
 import './styles/style.sass';
 import { preloader } from './ts/preloader';
+import { modalView } from './ts/components/modal/modalSection';
 
 const root = document.getElementById('root');
 
@@ -16,3 +17,5 @@ if (root) {
 }
 
 preloader();
+
+modalView();
