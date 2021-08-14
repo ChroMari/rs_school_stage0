@@ -5,7 +5,9 @@ import '../../../styles/song.sass';
 
 class PlayersSlider {
   playerVies: Array<HTMLElement>;
+
   playerMp3s: Array<HTMLAudioElement>;
+
   containerSong: HTMLElement;
 
   constructor() {
@@ -14,7 +16,7 @@ class PlayersSlider {
     this.containerSong = document.createElement('div');
   }
 
-  render() {
+  render = (): HTMLElement => {
     const song = document.createElement('section');
     song.classList.add('song');
 
@@ -25,7 +27,7 @@ class PlayersSlider {
       const { srcFirstSong, textFirstSong, srcSecondSong, textSecondSong } = link;
       const item = new PlayerItem();
 
-      this.playerVies.push(item.render(srcFirstSong, textFirstSong, srcSecondSong, textSecondSong)); // собираем элементы в массив
+      this.playerVies.push(item.render(srcFirstSong, textFirstSong, srcSecondSong, textSecondSong));
       this.playerMp3s.push(item.playerMp3_1);
       this.playerMp3s.push(item.playerMp3_2);
 
@@ -33,7 +35,7 @@ class PlayersSlider {
     });
 
     return song;
-  }
+  };
 }
 
 export { PlayersSlider };

@@ -3,7 +3,9 @@ import pauseSrc from '../../../assets/svg/pause.svg';
 
 class PlayButton {
   mp3: HTMLAudioElement;
+
   isPlay: boolean;
+
   constructor(mp3: HTMLAudioElement) {
     this.mp3 = mp3;
     this.isPlay = false;
@@ -22,12 +24,19 @@ class PlayButton {
     }
   };
 
-  stop = (img: HTMLImageElement) => {
+  stop = (img: HTMLImageElement): void => {
+    const oldImg = img;
+    oldImg.src = playSrc;
+    this.isPlay = false;
+  };
+
+  start = (img: HTMLImageElement): void => {
+    this.isPlay = true;
     const oldImg = img;
     oldImg.src = pauseSrc;
   };
 
-  render() {
+  render = (): HTMLElement => {
     const button = document.createElement('button');
     button.type = 'button';
     button.classList.add('song-item__button');
@@ -40,9 +49,10 @@ class PlayButton {
     button.onclick = () => this.playAndPause(img);
 
     this.mp3.addEventListener('pause', () => this.stop(img));
+    this.mp3.addEventListener('play', () => this.start(img));
 
     return button;
-  }
+  };
 }
 
 export { PlayButton };

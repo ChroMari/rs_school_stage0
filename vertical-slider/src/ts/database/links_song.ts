@@ -19,44 +19,44 @@ import songSrc6_2 from '../../assets/audio/grass_2.mp3';
 const links: Array<Ilink> = [
   {
     srcFirstSong: songSrc1_1,
-    textFirstSong: 'Крик пролетающей чайки beach',
+    textFirstSong: 'The cry of a flying seagull',
     srcSecondSong: songSrc1_2,
-    textSecondSong: 'Приятный звук волн на море beach',
+    textSecondSong: 'The sound of the waves on the sea',
   },
 
   {
     srcFirstSong: songSrc2_1,
-    textFirstSong: 'Звук, который записан ночью в поле butterfly',
+    textFirstSong: 'Summer field',
     srcSecondSong: songSrc2_2,
     textSecondSong: 'Common Yellowthroat butterfly',
   },
 
   {
     srcFirstSong: songSrc3_1,
-    textFirstSong: 'Атмосфера леса в осеннюю пору fall',
+    textFirstSong: 'Autumn forest atmosphere',
     srcSecondSong: songSrc3_2,
-    textSecondSong: 'Звук, где аист готовится к перелету fall',
+    textSecondSong: 'Stork preparing for departure',
   },
 
   {
     srcFirstSong: songSrc4_1,
-    textFirstSong: 'Музыка на Новый год для фона без слов fire',
+    textFirstSong: 'Christmas is coming',
     srcSecondSong: songSrc4_2,
-    textSecondSong: 'Треск огня в камине fire',
+    textSecondSong: 'fire in the fireplace',
   },
 
   {
     srcFirstSong: songSrc5_1,
-    textFirstSong: 'Джунгли днем: насекомые, птицы, дневные сверчки, утки waterfall',
+    textFirstSong: 'jungle nature',
     srcSecondSong: songSrc5_2,
-    textSecondSong: 'Звук маленького водопада waterfall',
+    textSecondSong: 'small waterfall',
   },
 
   {
     srcFirstSong: songSrc6_1,
-    textFirstSong: 'Звук насекомых в поле ночью grass',
+    textFirstSong: 'insects in the field',
     srcSecondSong: songSrc6_2,
-    textSecondSong: 'Звук обычного ветра в поле в жаркий день grass',
+    textSecondSong: 'wind on a hot day',
   },
 ];
 

@@ -21,11 +21,25 @@ class LogicSliders {
 
   imgViews: Array<HTMLImageElement>;
 
+  posInitialSong: number;
+
+  posFinalSong: number;
+
+  playerVies: Array<HTMLElement>;
+
+  playerMp3s: Array<HTMLAudioElement>;
+
+  containerSong: HTMLElement;
+
   constructor(
     indexActiveVideo: number,
     videoViews: Array<HTMLDivElement>,
     videoContainer: HTMLDivElement,
     imgViews: Array<HTMLImageElement>,
+
+    playerVies: Array<HTMLElement>,
+    playerMp3s: Array<HTMLAudioElement>,
+    containerSong: HTMLElement,
   ) {
     this.posX1 = 0;
     this.posX2 = 0;
@@ -38,6 +52,13 @@ class LogicSliders {
 
     this.videoViews = videoViews;
     this.videoContainer = videoContainer;
+
+    this.posInitialSong = 0;
+    this.posFinalSong = 0;
+
+    this.playerVies = playerVies;
+    this.playerMp3s = playerMp3s;
+    this.containerSong = containerSong;
 
     this.imgViews = imgViews;
   }
@@ -61,20 +82,27 @@ class LogicSliders {
 
   shiftSlide = (dir: number, action: string): void => {
     this.videoContainer.classList.add('shifting');
+    this.containerSong.classList.add('shifting'); // класс для сдвига плеера
+
+    this.playerMp3s.forEach((audio) => audio.pause()); // ставим звук на паузу
     this.imgViews.forEach((img) => img.classList.remove('slider__item--active'));
 
     if (this.allowShift) {
-      if (!action) this.posInitialVideo = this.videoContainer.offsetTop;
-
+      if (!action) {
+        this.posInitialVideo = this.videoContainer.offsetTop;
+        this.posInitialSong = this.containerSong.offsetTop - 20; // сдвигаем слайдер
+      }
       if (dir === 1) {
         this.videoContainer.style.top = `${
           this.posInitialVideo - this.videoViews[0].offsetHeight
         }px`;
+        this.containerSong.style.top = `${this.posInitialSong - this.playerVies[0].offsetHeight}px`;
         this.index += 1;
       } else if (dir === -1) {
         this.videoContainer.style.top = `${
           this.posInitialVideo + this.videoViews[0].offsetHeight
         }px`;
+        this.containerSong.style.top = `${this.posInitialSong + this.playerVies[0].offsetHeight}px`;
         this.index -= 1;
       }
 
@@ -97,18 +125,30 @@ class LogicSliders {
 
   checkIndex = (): void => {
     this.videoContainer.classList.remove('shifting');
+    this.containerSong.classList.remove('shifting');
 
     if (this.index === -1) {
       this.videoContainer.style.top = `${-(
         this.videoViews.length * this.videoViews[0].offsetHeight
       )}px`;
+
+      this.containerSong.style.top = `${-(
+        this.playerVies.length * this.playerVies[0].offsetHeight
+      )}px`;
       this.index = this.videoViews.length - 1;
     }
     if (this.index === this.videoViews.length) {
       this.videoContainer.style.top = `${-(1 * this.videoViews[0].offsetHeight)}px`;
+
+      this.containerSong.style.top = `${-(1 * this.playerVies[0].offsetHeight)}px`;
       this.index = 0;
     }
     localStorage.setItem('active', String(this.index));
+
+    // включаем музыку
+    this.playerMp3s[this.index * 2].play();
+    this.playerMp3s[this.index * 2 + 1].play();
+
     this.allowShift = true;
   };
 
@@ -122,10 +162,19 @@ class LogicSliders {
     this.videoContainer.insertBefore(cloneLast, firstSlide);
     this.videoContainer.style.top = `${-((this.index + 1) * 500)}px`;
 
+    const firstSlideSong = this.playerVies[0];
+    const lastSlideSong = this.playerVies[this.playerVies.length - 1];
+    const cloneFirstSong = firstSlideSong.cloneNode(true);
+    const cloneLastSong = lastSlideSong.cloneNode(true);
+
+    this.containerSong.appendChild(cloneFirstSong);
+    this.containerSong.insertBefore(cloneLastSong, firstSlideSong);
+    this.containerSong.style.top = `${-((this.index + 1) * 220)}px`;
+
     this.imgViews.forEach((item, index) =>
       item.addEventListener('click', () => {
         this.index = index;
-        logicImgClick(this.videoContainer, this.imgViews, this.index);
+        logicImgClick(this.videoContainer, this.imgViews, this.index, this.containerSong);
       }),
     );
   }

@@ -3,9 +3,13 @@ import srcNoVolume from '../../../assets/svg/no_volume.svg';
 
 class PlayVolume {
   mp3: HTMLAudioElement;
+
   isPlayVolume: boolean;
+
   valueVolume: number;
+
   isMouse: boolean;
+
   constructor(mp3: HTMLAudioElement) {
     this.mp3 = mp3;
 
@@ -55,10 +59,10 @@ class PlayVolume {
 
   render(): HTMLElement {
     const container = document.createElement('div');
-    container.classList.add('song-item-wrapper', 'song-item-wrapper--volume');
+    container.classList.add('song-item-wrapper--volume');
 
     const button = document.createElement('button');
-    button.classList.add('song-item__button', 'song__player-btn--small');
+    button.classList.add('song-item__button', 'song-item__button--small');
     container.appendChild(button);
 
     const img = document.createElement('img');
@@ -67,7 +71,7 @@ class PlayVolume {
     button.appendChild(img);
 
     const range = document.createElement('input');
-    range.classList.add('song__player-progress', 'song-item__progress');
+    range.classList.add('song-item__progress');
     range.type = 'range';
     range.value = '50';
     range.min = '0';

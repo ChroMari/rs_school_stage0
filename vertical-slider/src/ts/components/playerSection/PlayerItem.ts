@@ -2,6 +2,7 @@ import { Player } from './Player';
 
 class PlayerItem {
   playerMp3_1: HTMLAudioElement;
+
   playerMp3_2: HTMLAudioElement;
 
   constructor() {

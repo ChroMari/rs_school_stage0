@@ -3,7 +3,9 @@ import { PlayVolume } from './PlayVolume';
 
 class Player {
   src: string;
+
   text: string;
+
   audio: HTMLAudioElement;
 
   constructor(src: string, text: string, audio: HTMLAudioElement) {
@@ -18,7 +20,7 @@ class Player {
 
     *    song-item-wrapper song-item-wrapper--volume - обертка и полоса разделения для музыки
     *      song-item__button
-    *      song-item__progress*/
+    *      song-item__progress */
 
     this.audio.src = this.src;
     this.audio.loop = true;
