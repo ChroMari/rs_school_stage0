@@ -8,7 +8,9 @@ class WeatherSearch {
   text: HTMLElement;
 
   constructor() {
-    this.city = !localStorage.getItem('city') ? 'Minsk' : String(localStorage.getItem('city'));
+    this.city = !localStorage.getItem('cityName')
+      ? 'Minsk'
+      : String(localStorage.getItem('cityName'));
 
     this.input = document.createElement('input');
     this.button = document.createElement('button');
