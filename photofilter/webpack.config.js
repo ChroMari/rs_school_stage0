@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin'); //подклю�
 const ESLintPlugin = require('eslint-webpack-plugin'); //подключаем eslint
 const PrettierPlugin = require('prettier-webpack-plugin');
 
+const CopyPlugin = require("copy-webpack-plugin");
+
 const devServer = (isDev) => !isDev ? {} : {
   devServer: { // подключение сервера для работы
     port: 4200,
@@ -103,6 +105,11 @@ module.exports = ({ develop }) => ({ //экспортируем модуль с 
       trailingComma: "all",        
       extensions: [ ".js", ".ts", ".tsx" ] 
     }),
+    /*new CopyPlugin({
+      patterns: [
+        {from: "./public"},
+      ],
+    }),*/
   ],
   ...devServer(develop),
   performance: {
