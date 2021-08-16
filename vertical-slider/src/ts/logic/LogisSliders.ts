@@ -73,9 +73,9 @@ class LogicSliders {
   dragEnd = (): void => {
     this.posFinalVideo = this.videoContainer.offsetTop;
     if (this.posFinalVideo - this.posInitialVideo < -this.threshold) this.shiftSlide(1, 'drag');
-    else if (this.posFinalVideo - this.posInitialVideo > this.threshold)
+    else if (this.posFinalVideo - this.posInitialVideo > this.threshold) {
       this.shiftSlide(-1, 'drag');
-    else this.videoContainer.style.top = `${this.posInitialVideo}px`;
+    } else this.videoContainer.style.top = `${this.posInitialVideo}px`;
 
     document.onmouseup = null;
     document.onmousemove = null;
@@ -106,9 +106,9 @@ class LogicSliders {
         this.index -= 1;
       }
 
-      if (this.index === -1)
+      if (this.index === -1) {
         this.imgViews[this.imgViews.length - 1].classList.add('slider__item--active');
-      else if (this.index === this.imgViews.length)
+      } else if (this.index === this.imgViews.length)
         this.imgViews[0].classList.add('slider__item--active');
       else this.imgViews[this.index].classList.add('slider__item--active');
     }
@@ -178,6 +178,7 @@ class LogicSliders {
     this.imgViews.forEach((item, index) =>
       item.addEventListener('click', () => {
         this.index = index;
+        this.playerMp3s.forEach((audio) => audio.pause()); // ставим звук на паузу
         logicImgClick(this.videoContainer, this.imgViews, this.index, this.containerSong);
       }),
     );
