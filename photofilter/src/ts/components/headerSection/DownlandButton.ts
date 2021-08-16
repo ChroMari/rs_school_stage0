@@ -6,15 +6,13 @@ class DownlandButton {
   }
 
   downland = (input: HTMLInputElement): void => {
-    let file;
-    if (input.files) file = input.files[0];
     const reader = new FileReader();
     reader.onload = () => {
       const img = document.createElement('img');
       img.src = String(reader.result);
       this.body.style.backgroundImage = `url(${img.src})`;
     };
-    if (file) reader.readAsDataURL(file);
+    if (input.files) reader.readAsDataURL(input.files[0]);
   };
 
   render = (): HTMLLabelElement => {

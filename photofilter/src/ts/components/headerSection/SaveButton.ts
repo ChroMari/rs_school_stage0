@@ -1,12 +1,15 @@
 class SaveButton {
-  constructor() {}
+  a: HTMLAnchorElement;
+
+  constructor() {
+    this.a = document.createElement('a');
+  }
 
   save = (): void => {
-    const href = ''; //this.canvas.toDataURL();
-    const a = document.createElement('a');
-    a.href = href;
-    a.download = 'image.png';
-    a.click();
+    const href = ''; // this.canvas.toDataURL();
+    this.a.href = href;
+    this.a.download = 'image.png';
+    this.a.click();
   };
 
   render = (): HTMLButtonElement => {

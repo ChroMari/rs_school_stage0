@@ -2,7 +2,9 @@
 
 class NextButton {
   index: number;
+
   img: HTMLImageElement;
+
   body: HTMLElement;
 
   constructor(body: HTMLElement) {

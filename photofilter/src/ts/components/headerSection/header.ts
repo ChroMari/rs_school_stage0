@@ -3,7 +3,7 @@ import { NextButton } from './NextButton';
 import { SaveButton } from './SaveButton';
 import { title } from './title';
 
-const headerView = (body: HTMLElement) => {
+const headerView = (body: HTMLElement): HTMLElement => {
   const header = document.createElement('header');
   header.classList.add('header');
 

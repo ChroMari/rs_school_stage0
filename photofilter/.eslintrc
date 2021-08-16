@@ -8,7 +8,8 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:react/recommended"
+    "plugin:react/recommended",
+    "prettier"
   ],
   "ignorePatterns": ["dist"],
   "parser": "@typescript-eslint/parser",
@@ -19,14 +20,13 @@
     },
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks"],
+  "plugins": ["@typescript-eslint", "react", "react-hooks", "prettier"],
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
 
-    "linebreak-style": 0,
-    "object-curly-newline": "off",
+    "prettier/prettier": ["error",  { "printWidth": 200 }]
   },
   "settings": {
     "react": {

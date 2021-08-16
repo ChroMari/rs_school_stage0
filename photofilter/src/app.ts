@@ -1,6 +1,6 @@
 import './styles/header.sass';
 import './styles/style.sass';
-import { filter } from './ts/components/filterSection/filter';
+import { FilterWrapper } from './ts/components/filterSection/FilterWrapper';
 import { headerView } from './ts/components/headerSection/header';
 /**
  * header
@@ -35,13 +35,15 @@ import { headerView } from './ts/components/headerSection/header';
 // filter -> ResetButton(filterArrays, canvas.canvas)
 //           ItemFilter(canvas.canvas)
 
+
 const root = document.getElementById('root');
 const { body } = document;
 
 const contentWrapper = document.createElement('div');
 contentWrapper.classList.add('content-wrapper'); // +
 
-contentWrapper.appendChild(filter());
+const filterWrapperClass = new FilterWrapper();
+contentWrapper.appendChild(filterWrapperClass.render());
 
 if (root) {
   root.appendChild(headerView(body));
