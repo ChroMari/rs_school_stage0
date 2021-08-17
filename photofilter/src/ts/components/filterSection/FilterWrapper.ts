@@ -10,10 +10,14 @@ class FilterWrapper {
 
   filteringCanvas: CallbackFunctionVariadic;
 
+  buttonReset: HTMLElement;
+
   constructor(filtering: CallbackFunctionVariadic) {
     this.title = document.createElement('h2');
     this.filters = [];
     this.filteringCanvas = filtering;
+
+    this.buttonReset = document.createElement('button');
   }
 
   render = (): HTMLElement => {
@@ -43,16 +47,10 @@ class FilterWrapper {
       filter.appendChild(this.filters[index].render());
     });
 
-    const filterButton = document.createElement('button');
-    filterButton.classList.add('filter-inner__button');
-    filterButton.textContent = 'Reset';
+    this.buttonReset.classList.add('filter-inner__button');
+    this.buttonReset.textContent = 'Reset';
 
-    filterButton.onclick = () => {
-      this.filters.map((filterItem) => filterItem.resetCount());
-      this.title.textContent = 'Filter - Normal';
-    };
-
-    titleInner.appendChild(filterButton);
+    titleInner.appendChild(this.buttonReset);
 
     return filter;
   };

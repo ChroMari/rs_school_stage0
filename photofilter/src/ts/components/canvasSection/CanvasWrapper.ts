@@ -38,7 +38,7 @@ class CanvasWrapper {
   };
 
   save = (): void => {
-    const a = document.createElement('a'); // проверить на gh скачиваются ли потом изображения
+    const a = document.createElement('a');
     a.href = this.canvas.toDataURL(this.img.src);
     a.download = 'image.png';
     a.click();

@@ -1,0 +1,49 @@
+/**
+ * header
+ *  header-inner - обёртка для двух кнопок
+ *    header__input - поле для активации загрузки изображения
+ *    header__button-load - кнопка для загрузки изображения с компьютера
+ *    header__button-save - кнопка для сохранения изображения на компьютер
+ *  header__title - название приложения
+ *  header__button-next - кнопка для включения следующей страницы
+ */
+
+/**
+ * content-wrapper - общий контейнер для основной части
+ */
+
+/**
+ * filter - общая секция со всеми фильтрами, которые могут применяться к фото
+ * filter-inner - общий контейнер для заголовка фильтра и сброса данных
+ *
+ *    filter-inner__title - название фильтра h3
+ *    filter-inner__button - кнопка для сброса фильтров в изначальное положение
+ * aside
+ *     filter__subtitle - название текущего фильтра
+ *     filter__input - бешунок, который служит для выставления зачения фильтра
+ *
+ * нужно будет сделать готовые пресеты по которым и работать
+ *
+ * если мы выбираем маленький какой-то из канвасов, то он должен повлиять и на большой и на фильтеры и на название фильтров
+ * select's -> canvas.canvas, filter.name, filterArrays
+ */
+
+// filter(canvas.draw) -> ResetButton(filterArrays, canvas.draw)
+//           ItemFilter(canvas.draw)
+
+/**
+ * drawing-wrapper - контейнер для основного канваса и пресетов
+ */
+
+/**
+ * canvas - главная обёртка для канваса
+ */
+
+/**
+ *  selected-wrapper - общая обёртка для пресетов с фото
+ *    selected-item selected-item--active - обертка для каждого отдельного пресета
+ *      selected-item__canvas - обёртка в которой находится канвас
+ *      selected-tem__title - название текущего стиля
+ *
+ * selected -> FilterWrapper.arrays canvas.draw
+ */

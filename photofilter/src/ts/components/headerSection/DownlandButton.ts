@@ -1,11 +1,20 @@
+import { SelectedItem } from '../canvasSection/SelectedItem';
+
 class DownlandButton {
   body: HTMLElement;
 
   drawingCanvas: CallbackFunctionDrawing;
 
-  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing) {
+  selectedArrays: Array<SelectedItem>;
+
+  constructor(
+    body: HTMLElement,
+    drawingCanvas: CallbackFunctionDrawing,
+    selectedArrays: Array<SelectedItem>,
+  ) {
     this.body = body;
     this.drawingCanvas = drawingCanvas;
+    this.selectedArrays = selectedArrays;
   }
 
   downland = (input: HTMLInputElement): void => {
@@ -14,7 +23,13 @@ class DownlandButton {
       const img = document.createElement('img');
       img.src = String(reader.result);
       this.body.style.backgroundImage = `url(${img.src})`;
-      img.onload = () => this.drawingCanvas(img);
+      img.onload = () => {
+        this.drawingCanvas(img);
+        this.selectedArrays.map((select) => {
+          select.renderFilterCanvas(img);
+          return select;
+        });
+      };
     };
     if (input.files) reader.readAsDataURL(input.files[0]);
   };

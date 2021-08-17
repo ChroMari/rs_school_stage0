@@ -1,5 +1,7 @@
 // массив объявить со всеми номерами из папок для картинок НУЖЕН КОПИ ПЛАГИН ИСПОЛЬЗОВАТЬ ДЛЯ ЭТОГО ПЛЮСОМ
 
+import { SelectedItem } from '../canvasSection/SelectedItem';
+
 class NextButton {
   index: number;
 
@@ -7,10 +9,17 @@ class NextButton {
 
   drawingCanvas: CallbackFunctionDrawing;
 
-  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing) {
+  selectedArrays: Array<SelectedItem>;
+
+  constructor(
+    body: HTMLElement,
+    drawingCanvas: CallbackFunctionDrawing,
+    selectedArrays: Array<SelectedItem>,
+  ) {
     this.index = 1;
     this.body = body;
     this.drawingCanvas = drawingCanvas;
+    this.selectedArrays = selectedArrays;
   }
 
   nextImage = (): void => {
@@ -27,6 +36,10 @@ class NextButton {
     img.onload = () => {
       this.body.style.backgroundImage = `url(${img.src})`;
       this.drawingCanvas(img);
+      this.selectedArrays.map((select) => {
+        select.renderFilterCanvas(img);
+        return select;
+      });
     };
     this.index += 1;
   };

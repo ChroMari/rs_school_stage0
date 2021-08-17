@@ -1,3 +1,4 @@
+import { SelectedItem } from '../canvasSection/SelectedItem';
 import { DownlandButton } from './DownlandButton';
 import { NextButton } from './NextButton';
 import { SaveButton } from './SaveButton';
@@ -7,6 +8,7 @@ const headerView = (
   body: HTMLElement,
   drawingCanvas: CallbackFunctionDrawing,
   saveCanvas: CallbackFunction,
+  selectedArrays: Array<SelectedItem>,
 ): HTMLElement => {
   const header = document.createElement('header');
   header.classList.add('header');
@@ -15,9 +17,9 @@ const headerView = (
   innerButton.classList.add('header-inner');
   header.appendChild(innerButton);
 
-  const headerDownlandClass = new DownlandButton(body, drawingCanvas); // кнопка для загрузки изображения
+  const headerDownlandClass = new DownlandButton(body, drawingCanvas, selectedArrays); // кнопка для загрузки изображения
   const headerSaveClass = new SaveButton(saveCanvas); // кнопка для скачивания изображения
-  const headerNextCLass = new NextButton(body, drawingCanvas); // кнопка для переключения на следующую картинку
+  const headerNextCLass = new NextButton(body, drawingCanvas, selectedArrays); // кнопка для переключения на следующую картинку
 
   headerNextCLass.nextImage();
 
