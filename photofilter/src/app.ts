@@ -1,5 +1,6 @@
 import './styles/header.sass';
 import './styles/style.sass';
+import { CanvasWrapper } from './ts/components/canvasSection/CanvasWrapper';
 import { FilterWrapper } from './ts/components/filterSection/FilterWrapper';
 import { headerView } from './ts/components/headerSection/header';
 /**
@@ -32,27 +33,49 @@ import { headerView } from './ts/components/headerSection/header';
  * select's -> canvas.canvas, filter.name, filterArrays
  */
 
-// filter -> ResetButton(filterArrays, canvas.canvas)
-//           ItemFilter(canvas.canvas)
+// filter(canvas.draw) -> ResetButton(filterArrays, canvas.draw)
+//           ItemFilter(canvas.draw)
 
+/**
+ * drawing-wrapper - контейнер для основного канваса и пресетов
+ */
+
+/**
+ * canvas - главная обёртка для канваса
+ */
+
+/**
+ *
+ */
 
 const root = document.getElementById('root');
 const { body } = document;
 
-const contentWrapper = document.createElement('div');
-contentWrapper.classList.add('content-wrapper'); // +
+const canvasClass = new CanvasWrapper();
 
-const filterWrapperClass = new FilterWrapper();
+// header нужно будет в этом месте объявить
+const headerWrapper = headerView(body, canvasClass.drawing, canvasClass.save);
+
+const contentWrapper = document.createElement('div');
+contentWrapper.classList.add('content-wrapper');
+
+const filterWrapperClass = new FilterWrapper(canvasClass.filtering); // canvas.draw
 contentWrapper.appendChild(filterWrapperClass.render());
 
+const drawingWrapper = document.createElement('div'); //
+drawingWrapper.classList.add('drawing-wrapper');
+contentWrapper.appendChild(drawingWrapper);
+
+drawingWrapper.appendChild(canvasClass.render());
+
 if (root) {
-  root.appendChild(headerView(body));
+  root.appendChild(headerWrapper); // canvas.canvas, canvas.draw, select-canvas.draw
   root.appendChild(contentWrapper);
 }
 
 // canvas -> canvas.draw
 // select-canvas -> select-canvas.draw
 
-// header(canvas.canvas, canvas.draw, select-canvas.draw) -> DownlandButton(body, canvas.draw, select-canvas.draw)
-//                                                        -> SaveButton(this.canvas)
+// header(body, canvas.draw, select-canvas.draw) -> DownlandButton(body, canvas.draw, select-canvas.draw)
+//                                                        -> SaveButton(canvas.draw) +
 //                                                        -> NextButton(body, canvas.draw, select-canvas.draw)

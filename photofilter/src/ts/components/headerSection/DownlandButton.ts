@@ -1,8 +1,11 @@
 class DownlandButton {
   body: HTMLElement;
 
-  constructor(body: HTMLElement) {
+  drawingCanvas: CallbackFunctionDrawing;
+
+  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing) {
     this.body = body;
+    this.drawingCanvas = drawingCanvas;
   }
 
   downland = (input: HTMLInputElement): void => {
@@ -11,6 +14,7 @@ class DownlandButton {
       const img = document.createElement('img');
       img.src = String(reader.result);
       this.body.style.backgroundImage = `url(${img.src})`;
+      img.onload = () => this.drawingCanvas(img);
     };
     if (input.files) reader.readAsDataURL(input.files[0]);
   };
@@ -35,3 +39,5 @@ class DownlandButton {
 }
 
 export { DownlandButton };
+
+type CallbackFunctionDrawing = (...args: HTMLImageElement[]) => void;

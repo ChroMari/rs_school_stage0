@@ -3,14 +3,14 @@
 class NextButton {
   index: number;
 
-  img: HTMLImageElement;
-
   body: HTMLElement;
 
-  constructor(body: HTMLElement) {
+  drawingCanvas: CallbackFunctionDrawing;
+
+  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing) {
     this.index = 1;
-    this.img = new Image();
     this.body = body;
+    this.drawingCanvas = drawingCanvas;
   }
 
   nextImage = (): void => {
@@ -22,9 +22,11 @@ class NextButton {
     const intervalNow = interval[Math.floor(date.getHours() / 6)];
     const url = `https://raw.githubusercontent.com/rolling-scopes-school/stage1-tasks/assets/images/${intervalNow}/${indexUrl}.jpg`;
 
-    this.img.src = url;
-    this.img.onload = () => {
-      this.body.style.backgroundImage = `url(${this.img.src})`;
+    const img = new Image();
+    img.src = url;
+    img.onload = () => {
+      this.body.style.backgroundImage = `url(${img.src})`;
+      this.drawingCanvas(img);
     };
     this.index += 1;
   };
@@ -40,3 +42,5 @@ class NextButton {
 }
 
 export { NextButton };
+
+type CallbackFunctionDrawing = (...args: HTMLImageElement[]) => void;

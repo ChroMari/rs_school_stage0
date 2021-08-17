@@ -1,16 +1,14 @@
 class SaveButton {
   a: HTMLAnchorElement;
 
-  constructor() {
+  saveCanvas: CallbackFunction;
+
+  constructor(saveCanvas: CallbackFunction) {
     this.a = document.createElement('a');
+    this.saveCanvas = saveCanvas;
   }
 
-  save = (): void => {
-    const href = ''; // this.canvas.toDataURL();
-    this.a.href = href;
-    this.a.download = 'image.png';
-    this.a.click();
-  };
+  save = (): void => this.saveCanvas();
 
   render = (): HTMLButtonElement => {
     const button = document.createElement('button');
@@ -24,3 +22,5 @@ class SaveButton {
 }
 
 export { SaveButton };
+
+type CallbackFunction = () => void;

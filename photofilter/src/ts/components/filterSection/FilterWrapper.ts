@@ -8,10 +8,12 @@ class FilterWrapper {
 
   filters: Array<FilterItem>;
 
-  constructor() {
+  filteringCanvas: CallbackFunctionVariadic;
+
+  constructor(filtering: CallbackFunctionVariadic) {
     this.title = document.createElement('h2');
-    this.filters = []; // массив, который содержит все классы фильтров
-    // для каждого фильтра в классе нужно будет отметить эталонный сброс по параметрам
+    this.filters = [];
+    this.filteringCanvas = filtering;
   }
 
   render = (): HTMLElement => {
@@ -28,13 +30,19 @@ class FilterWrapper {
     filterInput.forEach((filterItem, index) => {
       const { min, max, value, typeFilter, unit } = filterItem;
 
-      const filterItemClass = new FilterItem(min, max, value, typeFilter, unit);
+      const filterItemClass = new FilterItem(
+        min,
+        max,
+        value,
+        typeFilter,
+        unit,
+        this.filteringCanvas,
+      );
       this.filters.push(filterItemClass);
 
       filter.appendChild(this.filters[index].render());
     });
 
-    // сделать кнопку для сброса стилей
     const filterButton = document.createElement('button');
     filterButton.classList.add('filter-inner__button');
     filterButton.textContent = 'Reset';
@@ -44,10 +52,12 @@ class FilterWrapper {
       this.title.textContent = 'Filter - Normal';
     };
 
-    // filter-inner__button -> filterArrays
+    titleInner.appendChild(filterButton);
 
     return filter;
   };
 }
 
 export { FilterWrapper };
+
+type CallbackFunctionVariadic = (...args: string[]) => void;

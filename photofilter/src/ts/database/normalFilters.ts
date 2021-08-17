@@ -31,7 +31,7 @@ const filterInput = [
     min: 0,
     max: 360,
     value: 0,
-    typeFilter: 'Hue rotate',
+    typeFilter: 'Hue-rotate',
     unit: 'deg',
   },
 
