@@ -26,7 +26,7 @@
     "react-hooks/exhaustive-deps": "warn",
     "import/prefer-default-export": "off",
 
-    "prettier/prettier": ["error",  { "printWidth": 200 }]
+    "prettier/prettier": "off"
   },
   "settings": {
     "react": {

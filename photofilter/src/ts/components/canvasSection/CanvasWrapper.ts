@@ -39,21 +39,24 @@ class CanvasWrapper {
 
   save = (): void => {
     const a = document.createElement('a');
-    a.href = this.canvas.toDataURL(this.img.src);
+    a.href = this.canvas.toDataURL(String(this.img));
     a.download = 'image.png';
     a.click();
   };
 
   drawing = (img: HTMLImageElement): void => {
+    this.img = new Image();
+    this.img.setAttribute('crossorigin', 'anonymous');
     this.img.src = img.src;
-    this.img.setAttribute('crossOrigin', 'anonymous');
-    this.canvas.width = img.width;
-    this.canvas.height = img.height;
+    this.img.onload = () => {
+      this.canvas.width = img.width;
+      this.canvas.height = img.height;
 
-    this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    if (this.resultFiltersCanvas.length !== 0 && this.ctx)
-      this.ctx.filter = this.resultFiltersCanvas;
-    this.ctx?.drawImage(img, 0, 0);
+      this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
+      if (this.resultFiltersCanvas.length !== 0 && this.ctx)
+        this.ctx.filter = this.resultFiltersCanvas;
+      this.ctx?.drawImage(this.img, 0, 0);
+    };
   };
 
   render = (): HTMLCanvasElement => this.canvas;
