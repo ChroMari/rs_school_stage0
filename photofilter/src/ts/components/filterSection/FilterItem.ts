@@ -17,14 +17,7 @@ class FilterItem {
 
   input: HTMLInputElement;
 
-  constructor(
-    min: number,
-    max: number,
-    value: number,
-    title: string,
-    unit: string,
-    filteringCanvas: CallbackFunctionVariadic,
-  ) {
+  constructor(min: number, max: number, value: number, title: string, unit: string, filteringCanvas: CallbackFunctionVariadic) {
     this.min = min;
     this.max = max;
     this.value = value;

@@ -7,11 +7,7 @@ class DownlandButton {
 
   selectedArrays: Array<SelectedItem>;
 
-  constructor(
-    body: HTMLElement,
-    drawingCanvas: CallbackFunctionDrawing,
-    selectedArrays: Array<SelectedItem>,
-  ) {
+  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing, selectedArrays: Array<SelectedItem>) {
     this.body = body;
     this.drawingCanvas = drawingCanvas;
     this.selectedArrays = selectedArrays;

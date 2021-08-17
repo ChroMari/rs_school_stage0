@@ -11,11 +11,7 @@ class NextButton {
 
   selectedArrays: Array<SelectedItem>;
 
-  constructor(
-    body: HTMLElement,
-    drawingCanvas: CallbackFunctionDrawing,
-    selectedArrays: Array<SelectedItem>,
-  ) {
+  constructor(body: HTMLElement, drawingCanvas: CallbackFunctionDrawing, selectedArrays: Array<SelectedItem>) {
     this.index = 1;
     this.body = body;
     this.drawingCanvas = drawingCanvas;

@@ -1,0 +1,88 @@
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  background: rgba(0,0,0,0.5)
+  z-index: 1050
+  opacity: 1
+  transition: opacity 200ms ease-in
+  pointer-events: auto
+  margin: 0
+  padding: 0
+  display: flex
+  align-items: center
+  &-dialog
+    position: relative
+    width: 900px
+    height: 600px
+    margin: 0 auto
+  &-content
+    position: relative
+    display: flex
+    flex-direction: column
+    background-color: #fff
+    background-clip: padding-box
+    border: 1px solid rgba(0,0,0,.2)
+    border-radius: .3rem
+    outline: 0
+    height: 100%
+  &-header
+    display: flex
+    align-items: center
+    justify-content: space-between
+    padding: 15px
+    border-bottom: 1px solid #eceeef
+  &-title
+    margin-top: 0
+    margin-bottom: 0
+    line-height: 1.5
+    font-size: 1.25rem
+    font-weight: 500
+  &-body
+    position: relative
+    flex: 1 1 auto
+    padding: 15px
+    overflow-y: auto
+  &-item 
+    margin-bottom: 20px
+    & h5 
+      font-weight: 500
+      font-size: 16px
+      margin-bottom: 15px
+      border-bottom: 1px solid #0000007d
+      padding-bottom: 10px
+    & p
+      margin-left: 25px
+      font-size: 14px
+      padding-bottom: 5px
+      border-bottom: 1px solid #0000002e
+      margin-bottom: 5px
+
+.close
+  font-size: 24px
+  font-weight: 700
+  color: #000
+  opacity: .5
+  cursor: pointer
+  &:focus
+    color: #000
+    opacity: .75
+  &:hover
+    color: #000
+    opacity: .75
+
+.button-open
+  position: absolute
+  top: 20px
+  right: 20px
+  z-index: 1
+  background-color: #f0d118
+  padding: 10px 20px
+  font-size: 14px
+  border-radius: 10px
+  cursor: pointer
+  &:hover
+    background-color: darken(#f0d118, 5)
+    color: #ffffff
