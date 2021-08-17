@@ -34,7 +34,14 @@ class FilterWrapper {
     filterInput.forEach((filterItem, index) => {
       const { min, max, value, typeFilter, unit } = filterItem;
 
-      const filterItemClass = new FilterItem(min, max, value, typeFilter, unit, this.filteringCanvas);
+      const filterItemClass = new FilterItem(
+        min,
+        max,
+        value,
+        typeFilter,
+        unit,
+        this.filteringCanvas,
+      );
       this.filters.push(filterItemClass);
 
       filter.appendChild(this.filters[index].render());

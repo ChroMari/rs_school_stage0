@@ -26,7 +26,12 @@ filterWrapperClass.buttonReset.onclick = () => {
   selectedWrapper.activeSelect(0, selectedWrapper.filterRenders);
 };
 
-const headerWrapper = headerView(body, canvasClass.drawing, canvasClass.save, selectedWrapper.selectedArrays);
+const headerWrapper = headerView(
+  body,
+  canvasClass.drawing,
+  canvasClass.save,
+  selectedWrapper.selectedArrays,
+);
 
 const drawingWrapper = document.createElement('div');
 drawingWrapper.classList.add('drawing-wrapper');

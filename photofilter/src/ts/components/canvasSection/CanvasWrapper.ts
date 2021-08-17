@@ -51,7 +51,8 @@ class CanvasWrapper {
     this.canvas.height = img.height;
 
     this.ctx?.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    if (this.resultFiltersCanvas.length !== 0 && this.ctx) this.ctx.filter = this.resultFiltersCanvas;
+    if (this.resultFiltersCanvas.length !== 0 && this.ctx)
+      this.ctx.filter = this.resultFiltersCanvas;
     this.ctx?.drawImage(img, 0, 0);
   };
 

@@ -4,7 +4,12 @@ import { NextButton } from './NextButton';
 import { SaveButton } from './SaveButton';
 import { title } from './title';
 
-const headerView = (body: HTMLElement, drawingCanvas: CallbackFunctionDrawing, saveCanvas: CallbackFunction, selectedArrays: Array<SelectedItem>): HTMLElement => {
+const headerView = (
+  body: HTMLElement,
+  drawingCanvas: CallbackFunctionDrawing,
+  saveCanvas: CallbackFunction,
+  selectedArrays: Array<SelectedItem>,
+): HTMLElement => {
   const header = document.createElement('header');
   header.classList.add('header');
 
