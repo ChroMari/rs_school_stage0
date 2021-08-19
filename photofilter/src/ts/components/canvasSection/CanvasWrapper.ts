@@ -39,13 +39,13 @@ class CanvasWrapper {
 
   save = (): void => {
     const a = document.createElement('a');
-    a.href = this.canvas.toDataURL(String(this.img));
+    a.href = this.canvas.toDataURL();
     a.download = 'image.png';
     a.click();
   };
 
   drawing = (img: HTMLImageElement): void => {
-    this.img = new Image();
+    //this.img = new Image();
     this.img.setAttribute('crossorigin', 'anonymous');
     this.img.src = img.src;
     this.img.onload = () => {
